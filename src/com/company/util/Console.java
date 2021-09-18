@@ -20,6 +20,16 @@ public class Console {
     }
 
     protected String getString(String prompt, boolean isRequired) {
-        s
+        String input;
+        do {
+            System.out.println(prompt);
+            input = scanner.nextLine();
+            if (isRequired && input.length() == 0) {
+                System.out.println("Entry Required");
+                continue;
+            }
+            break;
+        } while (true);
+        return input;
     }
 }
