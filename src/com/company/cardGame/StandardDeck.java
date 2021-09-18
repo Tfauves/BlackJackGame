@@ -1,9 +1,10 @@
 package com.company.cardGame;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class StandardDeck {
+public class StandardDeck implements Deck {
     private final List<Card> deck = new ArrayList<>();
     private final String[] SUITS = {"\u2664", "\u2665", "\u2666", "\u2667"
     };
@@ -16,6 +17,18 @@ public class StandardDeck {
                 deck.add(new PlayingCard(suit, faceValue));
             }
         }
+    }
+
+    public void shuffle() {
+        Collections.shuffle(deck);
+    }
+
+    public Card deal() {
+        return deck.remove(deck.size() -1);
+    }
+
+    public List<Card> getDeck() {
+        return deck;
     }
 
 
