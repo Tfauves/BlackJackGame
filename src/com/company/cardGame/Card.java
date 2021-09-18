@@ -14,4 +14,13 @@ public abstract class Card {
     }
 
     public abstract void display();
+
+
+    public int getFaceValue() {
+        return faceValue;
+    }
+
+    public String getSuit() {
+        return suit;
+    }
 }
