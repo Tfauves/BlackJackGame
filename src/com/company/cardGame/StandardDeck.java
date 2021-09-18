@@ -6,13 +6,13 @@ import java.util.List;
 
 public class StandardDeck implements Deck {
     private final List<Card> deck = new ArrayList<>();
-    private final String[] SUITS = {"\u2664", "\u2665", "\u2666", "\u2667"
+    private final String[] SUIT = {"\u2664", "\u2665", "\u2666", "\u2667"
     };
     public final int[] FACE_VALUE = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
     };
 
     public StandardDeck() {
-        for (String suit : SUITS) {
+        for (String suit : SUIT) {
             for (int faceValue : FACE_VALUE) {
                 deck.add(new PlayingCard(suit, faceValue));
             }
@@ -30,9 +30,6 @@ public class StandardDeck implements Deck {
     public List<Card> getDeck() {
         return deck;
     }
-
-
-
 
 
 }
