@@ -13,7 +13,7 @@ public abstract class Card {
         return faceValue + " " + suit;
     }
 
-    public abstract void display();
+    public abstract String display();
 
 
     public int getFaceValue() {

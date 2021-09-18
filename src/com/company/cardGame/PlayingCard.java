@@ -10,7 +10,16 @@ public class PlayingCard extends Card {
         return getFaceValue() + " " + getSuit();
     }
 
-    public void display() {
+    public String display() {
+        String outPut = "";
+        switch (getFaceValue()) {
+            case 1 -> outPut = "Ace";
+            case 11 -> outPut = "Jack";
+            case 12 -> outPut = "Queen";
+            case 13 -> outPut = "King";
+            default -> outPut = getFaceValue() == 10 ? Integer.toString(getFaceValue()) : " " + getFaceValue();
+        };
+        return outPut + " " + getSuit();
 
     }
 
