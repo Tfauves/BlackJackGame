@@ -21,5 +21,7 @@ public class Player implements Actor{
         return 0;
     }
 
-    public void getAction() {}
+    public int getAction() {
+        return 0;
+    }
 }

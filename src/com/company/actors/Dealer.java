@@ -18,5 +18,7 @@ public class Dealer implements Actor{
         return BET;
     }
 
-    public void getAction() {}
+    public int getAction() {
+        return 0;
+    }
 }

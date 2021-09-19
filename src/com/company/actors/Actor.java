@@ -4,5 +4,5 @@ public interface Actor {
     String getName();
     int getBalance();
     int getBet();
-    void getAction();
+    int getAction();
 }
