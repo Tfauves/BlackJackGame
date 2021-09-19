@@ -6,8 +6,17 @@ public class Dealer implements Actor{
     private final int BET = 0;
 
 
-    public void getName() {}
-    public void getBalance() {}
-    public void getBet() {}
+    public String getName() {
+        return NAME;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public int getBet() {
+        return BET;
+    }
+
     public void getAction() {}
 }

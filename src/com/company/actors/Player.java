@@ -1,7 +1,7 @@
 package com.company.actors;
 
 public class Player implements Actor{
-    private String name;
+    private final String name;
     private int balance;
 
     public Player (String name, int balance) {
@@ -9,8 +9,17 @@ public class Player implements Actor{
         this.balance = balance;
     }
 
-    public void getName() {}
-    public void getBalance() {}
-    public void getBet() {}
+    public String getName() {
+        return name;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public int getBet() {
+        return 0;
+    }
+
     public void getAction() {}
 }

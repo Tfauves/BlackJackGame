@@ -1,8 +1,8 @@
 package com.company.actors;
 
 public interface Actor {
-    void getName();
-    void getBalance();
-    void getBet();
+    String getName();
+    int getBalance();
+    int getBet();
     void getAction();
 }
