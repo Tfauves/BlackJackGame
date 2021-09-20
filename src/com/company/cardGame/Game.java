@@ -1,5 +1,7 @@
 package com.company.cardGame;
 
+import com.company.actors.Actor;
+import com.company.actors.Dealer;
 import com.company.actors.Player;
 import com.company.util.Console;
 
@@ -10,7 +12,7 @@ public class Game {
     private Hand hand;
 
     public void startGame() {
-        table = new Table(new ArrayList(), new ArrayList(), null);
+        table = new Table(new ArrayList(), new ArrayList(), new Dealer());
         getPlayers();
         table.displayTable();
         getPlayerHand(table);
@@ -23,7 +25,6 @@ public class Game {
             String playerName = Console.getString("Enter Player Name: ", true);
             Player player = new Player(playerName, 100);
             table.getActors().add(player);
-
         }
 
     }
@@ -31,8 +32,8 @@ public class Game {
     // TODO: 9/19/2021 how do i get two cards dealt??
     public void getPlayerHand(Table table) {
         Deck cards = new StandardDeck();
+        cards.shuffle();
         for (Object player : table.getActors()) {
-            cards.shuffle();
             System.out.println(player.toString() + "Hand: " + cards.deal().display());
         }
     }

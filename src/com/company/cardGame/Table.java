@@ -40,4 +40,8 @@ public class Table {
     public void setActors(List actors) {
         this.actors = actors;
     }
+
+    public Dealer getDealer() {
+        return dealer;
+    }
 }
