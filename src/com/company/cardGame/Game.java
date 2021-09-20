@@ -39,7 +39,7 @@ public class Game {
                int handValue = card1.getFaceValue() + card2.getFaceValue();
 //                System.out.println(card1.display() + card2.display() + handValue);
 //            table.getHands().add(hand);
-            System.out.println(player.toString() + "Hand: " + card1.display() + card2.display() + " | Hand Total: " + handValue );
+            System.out.println(player.toString() + "Hand: " + card1.display() + " " + card2.display() + " | Hand Total: " + handValue );
         }
     }
 
