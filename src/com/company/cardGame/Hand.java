@@ -1,14 +1,20 @@
 package com.company.cardGame;
 
+import com.company.actors.Actor;
 import com.company.actors.Player;
 
 public class Hand {
     private Deck deck;
-    private Player player;
+    private Actor player;
     private int bet;
     private boolean isActiveTurn = true;
 
 
+
+    public Hand(Deck deck, Actor player) {
+        this.deck = deck;
+        this.player = player;
+    }
 
     public void hit(Deck deck) {
         System.out.println(deck.deal().display());
