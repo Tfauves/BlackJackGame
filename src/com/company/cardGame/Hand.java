@@ -1,17 +1,16 @@
 package com.company.cardGame;
 
-import com.company.actors.Actor;
 import com.company.actors.Player;
 
 public class Hand {
     private Deck deck;
-    private Actor player;
+    private Player player;
     private int bet;
     private boolean isActiveTurn = true;
 
 
 
-    public Hand(Deck deck, Actor player) {
+    public Hand(Deck deck, Player player) {
         this.deck = deck;
         this.player = player;
     }

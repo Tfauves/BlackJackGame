@@ -34,7 +34,7 @@ public class Game {
         Deck cards = new StandardDeck();
         cards.shuffle();
         for (Object player : table.getActors()) {
-            hand = new Hand(cards, (Actor) player);
+            hand = new Hand(cards, (Player) player);
             System.out.println(player.toString() + "Hand: " + cards.deal().display());
         }
     }
