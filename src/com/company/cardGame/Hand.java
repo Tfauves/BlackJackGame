@@ -27,6 +27,7 @@ public class Hand {
 
     }
 
+    // TODO: 9/19/2021 sum hand for value.
     public void getValue() {
 
     }
