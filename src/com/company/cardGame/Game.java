@@ -29,7 +29,6 @@ public class Game {
 
     }
 
-    // TODO: 9/19/2021 how do i get two cards dealt??
     public void getPlayerHand(Table table) {
 
         for (Object player : table.getActors()) {
@@ -37,9 +36,10 @@ public class Game {
             hand.getDeck().shuffle();
                Card card1 = hand.getDeck().deal();
                Card card2 = hand.getDeck().deal();
-                System.out.println(card1.display() + card2.display());
+               int handValue = card1.getFaceValue() + card2.getFaceValue();
+//                System.out.println(card1.display() + card2.display() + handValue);
 //            table.getHands().add(hand);
-//            System.out.println(player.toString() + "Hand: " + );
+            System.out.println(player.toString() + "Hand: " + card1.display() + card2.display() + " | Hand Total: " + handValue );
         }
     }
 
