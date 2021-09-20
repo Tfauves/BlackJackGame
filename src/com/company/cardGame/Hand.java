@@ -6,10 +6,12 @@ public class Hand {
     private Deck deck;
     private Player player;
     private int bet;
+    private boolean isActiveTurn = true;
 
 
 
-    public void hit() {
+    public void hit(Deck deck) {
+        System.out.println(deck.deal().display());
 
     }
 

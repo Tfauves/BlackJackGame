@@ -21,4 +21,5 @@ public class Dealer implements Actor{
     public int getAction() {
         return 0;
     }
+
 }
