@@ -44,4 +44,8 @@ public class Table {
     public Dealer getDealer() {
         return dealer;
     }
+
+    public List<Hand> getHands() {
+        return hands;
+    }
 }

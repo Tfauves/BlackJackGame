@@ -14,11 +14,11 @@ public class Game {
     public void startGame() {
         table = new Table(new ArrayList(), new ArrayList(), new Dealer());
         getPlayers();
-        table.displayTable();
+//        table.displayTable();
         getPlayerHand(table);
     }
 
-    // TODO: 9/19/2021 check into line 25
+    // TODO: 9/19/2021 check into line 2
     public void getPlayers() {
         int numbOfPlayers = Console.getInt(1, 12, "enter number of players: ", "invalid entry");
         for (int i = 0; i < numbOfPlayers; i++) {
@@ -31,11 +31,15 @@ public class Game {
 
     // TODO: 9/19/2021 how do i get two cards dealt??
     public void getPlayerHand(Table table) {
-        Deck cards = new StandardDeck();
-        cards.shuffle();
+
         for (Object player : table.getActors()) {
-            hand = new Hand(cards, (Player) player);
-            System.out.println(player.toString() + "Hand: " + cards.deal().display());
+            hand = new Hand((Player) player, new StandardDeck());
+            hand.getDeck().shuffle();
+               Card card1 = hand.getDeck().deal();
+               Card card2 = hand.getDeck().deal();
+                System.out.println(card1.display() + card2.display());
+//            table.getHands().add(hand);
+//            System.out.println(player.toString() + "Hand: " + );
         }
     }
 

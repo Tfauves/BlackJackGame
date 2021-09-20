@@ -10,9 +10,9 @@ public class Hand {
 
 
 
-    public Hand(Deck deck, Player player) {
-        this.deck = deck;
+    public Hand(Player player, Deck deck) {
         this.player = player;
+        this.deck = deck;
     }
 
     public void hit(Deck deck) {
@@ -37,4 +37,7 @@ public class Hand {
 
     }
 
+    public Deck getDeck() {
+        return deck;
+    }
 }
