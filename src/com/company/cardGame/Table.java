@@ -1,12 +1,14 @@
 package com.company.cardGame;
 
+import com.company.actors.Actor;
 import com.company.actors.Dealer;
+import com.company.actors.Player;
 
 import java.util.List;
 
 public class Table {
-    private List hands;
-    private List actors;
+    private List<Hand> hands;
+    private List<Actor> actors;
     private Dealer dealer;
 
     public Table(List hands, List actors, Dealer dealer) {
@@ -21,6 +23,9 @@ public class Table {
     }
 
     public void displayTable() {
+      for (Actor player : actors) {
+          System.out.println(player.getName());
+      }
 
     }
 

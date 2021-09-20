@@ -13,6 +13,6 @@ public class Main {
 //        playerHand.hit(cardDeck);
 
         Game blackJack = new Game();
-        blackJack.getPlayers();
+        blackJack.startGame();
     }
 }
