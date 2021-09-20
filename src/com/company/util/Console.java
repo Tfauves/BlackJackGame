@@ -3,7 +3,7 @@ package com.company.util;
 import java.util.Scanner;
 
 public class Console {
-    private final static Scanner scanner = new Scanner(System.in);
+    public final static Scanner scanner = new Scanner(System.in);
 
     public static int getInt(int min, int max, String prompt, String errorMsg) {
         int option = min - 1;
