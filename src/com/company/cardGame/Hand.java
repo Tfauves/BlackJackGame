@@ -27,6 +27,8 @@ public class Hand {
 
     }
 
-//    public void getValue();
+    public void getValue() {
+
+    }
 
 }

@@ -13,6 +13,7 @@ public class Game {
         table = new Table(new ArrayList(), new ArrayList(), null);
         getPlayers();
         table.displayTable();
+        getPlayerHand(table);
     }
 
 
@@ -25,6 +26,14 @@ public class Game {
 
         }
 
+    }
+
+    public void getPlayerHand(Table table) {
+        Deck cards = new StandardDeck();
+        for (Object player : table.getActors()) {
+            cards.shuffle();
+            System.out.println(cards.deal().display() + player.toString());
+        }
     }
 
 

@@ -24,4 +24,8 @@ public class Player implements Actor{
     public int getAction() {
         return 0;
     }
+
+    public String toString() {
+        return name + balance;
+    }
 }
