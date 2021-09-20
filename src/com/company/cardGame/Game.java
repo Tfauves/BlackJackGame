@@ -1,36 +1,20 @@
 package com.company.cardGame;
 
+import com.company.actors.Player;
 import com.company.util.Console;
 
 public class Game {
-    Table table;
-    Hand hand;
+    private Table table;
+    private Hand hand;
 
 
-    public void numbOfPlayers() {
+    public void getPlayers() {
         int numbOfPlayers = Console.getInt(1, 12, "enter number of players: ", "invalid entry");
 
-
-    }
-
-    public static int getInt(int min, int max, String prompt, String errorMsg) {
-        int option = min - 1;
-        do {
-            System.out.println(prompt);
-            String input = Console.scanner.nextLine();
-            try{
-                option = Integer.parseInt(input);
-            } catch (NumberFormatException err) {
-                System.out.println(errorMsg);
-            }
-        } while (option < min || option > max);
-        return option;
-    }
-
-
-
-    public void getPlayerName() {
-        System.out.println();
+        for (int i = 0; i < numbOfPlayers; i++) {
+            String playerName = Console.getString("Enter Player Name: ", true);
+            Player player = new Player(playerName, 100);
+        }
 
 
     }
