@@ -28,11 +28,12 @@ public class Game {
 
     }
 
+    // TODO: 9/19/2021 how do i get two cards dealt??
     public void getPlayerHand(Table table) {
         Deck cards = new StandardDeck();
         for (Object player : table.getActors()) {
             cards.shuffle();
-            System.out.println(cards.deal().display() + player.toString());
+            System.out.println(player.toString() + "Hand: " + cards.deal().display());
         }
     }
 

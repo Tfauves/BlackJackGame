@@ -26,6 +26,6 @@ public class Player implements Actor{
     }
 
     public String toString() {
-        return name + balance;
+        return "| Player: " + name + " | Balance: " + balance + " |";
     }
 }
