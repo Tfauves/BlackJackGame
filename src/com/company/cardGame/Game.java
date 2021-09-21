@@ -44,7 +44,13 @@ public class Game {
     }
 
     public void getAction(Player activePlayer) {
-        int playerAction = Console.getInt(1,4, , "invalid selection");
+        boolean isActive = true;
+        while (isActive) {
+            Console.displayActions("what would you like to do?", Console.ACTION_SELECTION);
+            int choice = Console.getInt(1, 4,  "Enter selection between 1 and 4:", "invalid selection");
+
+            handleMenuSelection(choice);
+        }
 
     }
 
