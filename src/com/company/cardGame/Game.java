@@ -5,6 +5,7 @@ import com.company.actors.Player;
 import com.company.util.Console;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Game {
     private Table table;
@@ -19,9 +20,9 @@ public class Game {
 
     // TODO: 9/19/2021 check into line 2
     public void getPlayers() {
-        int numbOfPlayers = Console.getInt(1, 12, "enter number of players: ", "invalid entry");
+        int numbOfPlayers = Console.getInt(1, 12,  Console.GET_PLAYER_PROMPT[0],"invalid entry");
         for (int i = 0; i < numbOfPlayers; i++) {
-            String playerName = Console.getString("Enter Player Name: ", true);
+            String playerName = Console.getString( Console.GET_PLAYER_PROMPT[1],true);
             Player player = new Player(playerName, 100);
             table.getActors().add(player);
         }
@@ -38,11 +39,12 @@ public class Game {
                int handValue = card1.getFaceValue() + card2.getFaceValue();
 
             System.out.println(player.toString() + "Hand: " + card1.display() + " " + card2.display() + " | Hand Total: " + handValue );
+            getAction((Player) player);
         }
     }
 
     public void getAction(Player activePlayer) {
-        int playerAction = Console.getInt(1,4, activePlayer.getName() + " What would you like to do? ")
+        int playerAction = Console.getInt(1,4, Console.ACTION_SELECTION[0], "invalid selection");
 
     }
 

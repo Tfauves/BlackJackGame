@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class Console {
     public final static Scanner scanner = new Scanner(System.in);
+    public static final String[] GET_PLAYER_PROMPT = new String[] {
+            "enter number of players: ",
+            "Enter Player Name: ",
+    };
     public static final String[] ACTION_SELECTION = new String[] {
             "1. Hit",
             "2. Stand",
