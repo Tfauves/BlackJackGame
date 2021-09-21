@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 public class Console {
     public final static Scanner scanner = new Scanner(System.in);
+    public static final String[] ACTION_SELECTION = new String[] {
+            "1. Hit",
+            "2. Stand",
+            "3. Split",
+            "4. Double"
+    };
 
     public static int getInt(int min, int max, String prompt, String errorMsg) {
         int option = min - 1;

@@ -1,6 +1,5 @@
 package com.company.cardGame;
 
-import com.company.actors.Actor;
 import com.company.actors.Dealer;
 import com.company.actors.Player;
 import com.company.util.Console;
@@ -9,7 +8,7 @@ import java.util.ArrayList;
 
 public class Game {
     private Table table;
-    private Hand hand;
+//    private Hand hand;
 
     public void startGame() {
         table = new Table(new ArrayList(), new ArrayList(), new Dealer());
@@ -32,15 +31,19 @@ public class Game {
     public void getPlayerHand(Table table) {
 
         for (Object player : table.getActors()) {
-            hand = new Hand((Player) player, new StandardDeck());
+            Hand hand = new Hand((Player) player, new StandardDeck());
             hand.getDeck().shuffle();
                Card card1 = hand.getDeck().deal();
                Card card2 = hand.getDeck().deal();
                int handValue = card1.getFaceValue() + card2.getFaceValue();
-//                System.out.println(card1.display() + card2.display() + handValue);
-//            table.getHands().add(hand);
+
             System.out.println(player.toString() + "Hand: " + card1.display() + " " + card2.display() + " | Hand Total: " + handValue );
         }
+    }
+
+    public void getAction(Player activePlayer) {
+        int playerAction = Console.getInt(1,4, activePlayer.getName() + " What would you like to do? ")
+
     }
 
 
