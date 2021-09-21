@@ -49,10 +49,38 @@ public class Game {
             Console.displayActions("what would you like to do?", Console.ACTION_SELECTION);
             int choice = Console.getInt(1, 4,  "Enter selection between 1 and 4:", "invalid selection");
 
-            handleMenuSelection(choice);
+            handleActionSelection(choice);
         }
 
     }
+
+    public void handleActionSelection(int choice) {
+        switch (choice) {
+            case 1 -> hit();
+            case 2 -> stand();
+            case 3 -> split();
+            case 4 -> doubleDown();
+            default -> System.out.println("invalid number received");
+        }
+    }
+
+    public void hit() {
+
+    }
+
+    public void stand() {
+
+    }
+
+    public void doubleDown() {
+
+    }
+
+    public void split() {
+
+    }
+
+
 
 
 }
