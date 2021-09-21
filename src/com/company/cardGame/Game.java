@@ -3,9 +3,7 @@ package com.company.cardGame;
 import com.company.actors.Dealer;
 import com.company.actors.Player;
 import com.company.util.Console;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Game {
     private Table table;
@@ -36,27 +34,27 @@ public class Game {
             hand.getDeck().shuffle();
                Card card1 = hand.getDeck().deal();
                Card card2 = hand.getDeck().deal();
-               int handValue = card1.getFaceValue() + card2.getFaceValue();
+               hand.setHandValue(card1.getFaceValue() + card2.getFaceValue());
 
-            System.out.println(player.toString() + "Hand: " + card1.display() + " " + card2.display() + " | Hand Total: " + handValue );
-            getAction((Player) player);
+            System.out.println(player.toString() + "Hand: " + card1.display() + " " + card2.display() + " | Hand Total: " + hand.getHandValue());
+            getAction((Player) player, hand);
         }
     }
 
-    public void getAction(Player activePlayer) {
+    public void getAction(Player activePlayer, Hand hand) {
         boolean isActive = true;
         while (isActive) {
             Console.displayActions("what would you like to do?", Console.ACTION_SELECTION);
             int choice = Console.getInt(1, 4,  "Enter selection between 1 and 4:", "invalid selection");
 
-            handleActionSelection(choice);
+            handleActionSelection(choice, hand);
         }
 
     }
 
-    public void handleActionSelection(int choice) {
+    public void handleActionSelection(int choice, Hand hand) {
         switch (choice) {
-            case 1 -> hit();
+            case 1 -> hit(hand);
             case 2 -> stand();
             case 3 -> split();
             case 4 -> doubleDown();
@@ -64,11 +62,20 @@ public class Game {
         }
     }
 
-    public void hit() {
-
+    public void hit(Hand hand) {
+      Card newCard =  hand.getDeck().deal();
+        System.out.println(newCard);
+        hand.setHandValue(hand.getHandValue() + newCard.getFaceValue());
+      if (hand.getHandValue() > 21) {
+          System.out.println("Bust!!! " + hand.getHandValue());
+      } else {
+          hand.setHandValue(hand.getHandValue() + newCard.getFaceValue());
+          System.out.println(hand.getHandValue());
+      }
     }
 
     public void stand() {
+
 
     }
 

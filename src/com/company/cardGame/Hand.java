@@ -7,6 +7,7 @@ public class Hand {
     private Player player;
     private int bet;
     private boolean isActiveTurn = true;
+    private int handValue;
 
 
 
@@ -39,5 +40,13 @@ public class Hand {
 
     public Deck getDeck() {
         return deck;
+    }
+
+    public int getHandValue() {
+        return handValue;
+    }
+
+    public void setHandValue(int handValue) {
+        this.handValue = handValue;
     }
 }

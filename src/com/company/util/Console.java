@@ -2,10 +2,12 @@ package com.company.util;
 
 import com.company.actors.Player;
 import com.company.cardGame.Deck;
+import com.company.cardGame.Game;
 
 import java.util.Scanner;
 
 public class Console {
+//    private Game blackJack;
     public final static Scanner scanner = new Scanner(System.in);
     public static final String[] ACTION_SELECTION = new String[] {
             "1. Hit",
@@ -35,17 +37,6 @@ public class Console {
         }
     }
 
-//    public void handleActionSelection(int choice) {
-//        switch (choice) {
-//            case 1 -> hit();
-//            case 2 -> stand();
-//            case 3 -> split();
-//            case 4 -> doubleDown();
-//            default -> System.out.println("invalid number received");
-//        }
-//    }
-
-
     public static String getString(String prompt, boolean isRequired) {
         String input;
         do {
@@ -60,31 +51,5 @@ public class Console {
         return input;
     }
 
-//    public void hit() {
-//        System.out.println(deck.deal().display());
-//
-//    }
-//
-//    public void stand() {
-//
-//    }
-//
-//    public void doubleDown() {
-//
-//    }
-//
-//    public void split() {
-//
-//    }
 
-//    public void getAction(Player activePlayer) {
-//        boolean isActive = true;
-//        while (isActive) {
-//            Console.displayActions("what would you like to do?", Console.ACTION_SELECTION);
-//            int choice = Console.getInt(1, 4,  "Enter selection between 1 and 4:", "invalid selection");
-//
-//            handleActionSelection(choice);
-//        }
-//
-//    }
 }
