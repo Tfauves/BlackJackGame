@@ -20,9 +20,9 @@ public class Game {
 
     // TODO: 9/19/2021 check into line 2
     public void getPlayers() {
-        int numbOfPlayers = Console.getInt(1, 12,  Console.GET_PLAYER_PROMPT[0],"invalid entry");
+        int numbOfPlayers = Console.getInt(1, 12, "enter number of players: ", "invalid entry");
         for (int i = 0; i < numbOfPlayers; i++) {
-            String playerName = Console.getString( Console.GET_PLAYER_PROMPT[1],true);
+            String playerName = Console.getString("Enter Player Name: ", true);
             Player player = new Player(playerName, 100);
             table.getActors().add(player);
         }
@@ -44,7 +44,7 @@ public class Game {
     }
 
     public void getAction(Player activePlayer) {
-        int playerAction = Console.getInt(1,4, Console.ACTION_SELECTION[0], "invalid selection");
+        int playerAction = Console.getInt(1,4, , "invalid selection");
 
     }
 

@@ -4,10 +4,6 @@ import java.util.Scanner;
 
 public class Console {
     public final static Scanner scanner = new Scanner(System.in);
-    public static final String[] GET_PLAYER_PROMPT = new String[] {
-            "enter number of players: ",
-            "Enter Player Name: ",
-    };
     public static final String[] ACTION_SELECTION = new String[] {
             "1. Hit",
             "2. Stand",
@@ -27,6 +23,24 @@ public class Console {
             }
         } while (option < min || option > max);
         return option;
+    }
+
+    public static int getInt(int min, int max, String[] prompt, String errorMsg) {
+        int option = min - 1;
+        do {
+            System.out.println(prompt);
+            String input = scanner.nextLine();
+            try {
+                option = Integer.parseInt(input);
+            } catch (NumberFormatException err) {
+                System.out.println(errorMsg);
+            }
+        } while (option < min || option > max);
+        return option;
+    }
+
+    public static void displayActions() {
+
     }
 
     public static String getString(String prompt, boolean isRequired) {
