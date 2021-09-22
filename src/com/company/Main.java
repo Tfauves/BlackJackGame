@@ -20,5 +20,6 @@ public class Main {
         myHand.addCard(cardDeck.deal());
         myHand.addCard(cardDeck.deal());
         System.out.println(myHand.displayHand());
+        System.out.println(myHand.displayValue());
     }
 }
