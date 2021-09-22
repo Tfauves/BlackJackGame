@@ -1,8 +1,6 @@
-package com.company.cardGame;
+package com.company.cardGame.blackJack;
 
-import com.company.actors.Actor;
-import com.company.actors.Dealer;
-import com.company.actors.Player;
+import com.company.cardGame.actors.Dealer;
 
 import java.util.List;
 

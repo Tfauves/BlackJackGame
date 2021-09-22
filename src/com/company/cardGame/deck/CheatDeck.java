@@ -1,6 +1,6 @@
-package com.company.cardGame;
+package com.company.cardGame.deck;
 
-import com.company.util.Console;
+import com.company.cardGame.util.Console;
 
 public class CheatDeck implements Deck {
 

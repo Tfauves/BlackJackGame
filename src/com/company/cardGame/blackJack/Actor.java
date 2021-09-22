@@ -1,4 +1,4 @@
-package com.company.actors;
+package com.company.cardGame.blackJack;
 
 public interface Actor {
     String getName();

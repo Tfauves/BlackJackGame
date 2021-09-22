@@ -1,4 +1,6 @@
-package com.company.cardGame;
+package com.company.cardGame.deck;
+
+import com.company.cardGame.deck.Card;
 
 public class PlayingCard extends Card {
 
@@ -10,6 +12,7 @@ public class PlayingCard extends Card {
         return getFaceValue() + " " + getSuit();
     }
 
+    @Override
     public String display() {
         String outPut = "";
         switch (getFaceValue()) {

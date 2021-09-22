@@ -1,6 +1,8 @@
-package com.company.actors;
+package com.company.cardGame.actors;
 
-public class Player implements Actor{
+import com.company.cardGame.blackJack.Actor;
+
+public class Player implements Actor {
     private final String name;
     private int balance;
 

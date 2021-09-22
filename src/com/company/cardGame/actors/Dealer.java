@@ -1,6 +1,8 @@
-package com.company.actors;
+package com.company.cardGame.actors;
 
-public class Dealer implements Actor{
+import com.company.cardGame.blackJack.Actor;
+
+public class Dealer implements Actor {
     private final String NAME = "dealer";
     private int balance = 0;
     private final int BET = 0;

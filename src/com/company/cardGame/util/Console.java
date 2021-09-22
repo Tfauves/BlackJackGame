@@ -1,8 +1,4 @@
-package com.company.util;
-
-import com.company.actors.Player;
-import com.company.cardGame.Deck;
-import com.company.cardGame.Game;
+package com.company.cardGame.util;
 
 import java.util.Scanner;
 
