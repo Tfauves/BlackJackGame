@@ -1,4 +1,6 @@
-package com.company.cardGame;
+package com.company.cardGame.deck;
+
+import com.company.cardGame.deck.Card;
 
 public class PlayingCard extends Card {
 

@@ -1,8 +1,10 @@
-package com.company.cardGame;
+package com.company.cardGame.blackJack;
 
-import com.company.actors.Dealer;
-import com.company.actors.Player;
-import com.company.util.Console;
+import com.company.cardGame.actors.Dealer;
+import com.company.cardGame.actors.Player;
+import com.company.cardGame.deck.Card;
+import com.company.cardGame.deck.StandardDeck;
+import com.company.cardGame.util.Console;
 import java.util.ArrayList;
 
 public class Game {
@@ -72,14 +74,17 @@ public class Game {
           hand.setHandValue(hand.getHandValue() + newCard.getFaceValue());
           System.out.println(hand.getHandValue());
       }
+      //next players turn
     }
 
     public void stand() {
+        //nextPlayer turn
 
 
     }
 
     public void doubleDown() {
+        //increase bet x2 and hit.
 
     }
 

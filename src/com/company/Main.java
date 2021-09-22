@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.cardGame.*;
+import com.company.cardGame.blackJack.Game;
 
 public class Main {
 

@@ -1,4 +1,8 @@
-package com.company.cardGame;
+package com.company.cardGame.deck;
+
+import com.company.cardGame.deck.Card;
+import com.company.cardGame.deck.Deck;
+import com.company.cardGame.deck.PlayingCard;
 
 import java.util.ArrayList;
 import java.util.Collections;
