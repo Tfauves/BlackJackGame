@@ -12,6 +12,7 @@ public class PlayingCard extends Card {
         return getFaceValue() + " " + getSuit();
     }
 
+    @Override
     public String display() {
         String outPut = "";
         switch (getFaceValue()) {

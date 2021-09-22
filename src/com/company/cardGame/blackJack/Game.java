@@ -11,12 +11,12 @@ public class Game {
     private Table table;
 //    private Hand hand;
 
-    public void startGame() {
-        table = new Table(new ArrayList(), new ArrayList(), new Dealer());
-        getPlayers();
-//        table.displayTable();
-        getPlayerHand(table);
-    }
+//    public void startGame() {
+//        table = new Table(new ArrayList(), new ArrayList(), new Dealer());
+//        getPlayers();
+////        table.displayTable();
+//        getPlayerHand(table);
+//    }
 
     // TODO: 9/19/2021 check into line 2
     public void getPlayers() {
@@ -28,54 +28,54 @@ public class Game {
         }
 
     }
+//
+//    public void getPlayerHand(Table table) {
+//
+//        for (Object player : table.getActors()) {
+//            Hand hand = new Hand((Player) player, new StandardDeck());
+//            hand.getDeck().shuffle();
+//               Card card1 = hand.getDeck().deal();
+//               Card card2 = hand.getDeck().deal();
+//               hand.setHandValue(card1.getFaceValue() + card2.getFaceValue());
+//
+//            System.out.println(player.toString() + "Hand: " + card1.display() + " " + card2.display() + " | Hand Total: " + hand.getHandValue());
+//            getAction((Player) player, hand);
+//        }
+//    }
 
-    public void getPlayerHand(Table table) {
+//    public void getAction(Player activePlayer, Hand hand) {
+//        boolean isActive = true;
+//        while (isActive) {
+//            Console.displayActions("what would you like to do?", Console.ACTION_SELECTION);
+//            int choice = Console.getInt(1, 4,  "Enter selection between 1 and 4:", "invalid selection");
+//
+//            handleActionSelection(choice, hand);
+//        }
+//
+//    }
 
-        for (Object player : table.getActors()) {
-            Hand hand = new Hand((Player) player, new StandardDeck());
-            hand.getDeck().shuffle();
-               Card card1 = hand.getDeck().deal();
-               Card card2 = hand.getDeck().deal();
-               hand.setHandValue(card1.getFaceValue() + card2.getFaceValue());
+//    public void handleActionSelection(int choice, Hand hand) {
+//        switch (choice) {
+//            case 1 -> hit(hand);
+//            case 2 -> stand();
+//            case 3 -> split();
+//            case 4 -> doubleDown();
+//            default -> System.out.println("invalid number received");
+//        }
+//    }
 
-            System.out.println(player.toString() + "Hand: " + card1.display() + " " + card2.display() + " | Hand Total: " + hand.getHandValue());
-            getAction((Player) player, hand);
-        }
-    }
-
-    public void getAction(Player activePlayer, Hand hand) {
-        boolean isActive = true;
-        while (isActive) {
-            Console.displayActions("what would you like to do?", Console.ACTION_SELECTION);
-            int choice = Console.getInt(1, 4,  "Enter selection between 1 and 4:", "invalid selection");
-
-            handleActionSelection(choice, hand);
-        }
-
-    }
-
-    public void handleActionSelection(int choice, Hand hand) {
-        switch (choice) {
-            case 1 -> hit(hand);
-            case 2 -> stand();
-            case 3 -> split();
-            case 4 -> doubleDown();
-            default -> System.out.println("invalid number received");
-        }
-    }
-
-    public void hit(Hand hand) {
-      Card newCard =  hand.getDeck().deal();
-        System.out.println(newCard);
-        hand.setHandValue(hand.getHandValue() + newCard.getFaceValue());
-      if (hand.getHandValue() > 21) {
-          System.out.println("Bust!!! " + hand.getHandValue());
-      } else {
-          hand.setHandValue(hand.getHandValue() + newCard.getFaceValue());
-          System.out.println(hand.getHandValue());
-      }
-      //next players turn
-    }
+//    public void hit(Hand hand) {
+//      Card newCard =  hand.getDeck().deal();
+//        System.out.println(newCard);
+//        hand.setHandValue(hand.getHandValue() + newCard.getFaceValue());
+//      if (hand.getHandValue() > 21) {
+//          System.out.println("Bust!!! " + hand.getHandValue());
+//      } else {
+//          hand.setHandValue(hand.getHandValue() + newCard.getFaceValue());
+//          System.out.println(hand.getHandValue());
+//      }
+//      //next players turn
+//    }
 
     public void stand() {
         //nextPlayer turn

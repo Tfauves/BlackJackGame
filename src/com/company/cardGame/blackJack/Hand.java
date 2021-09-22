@@ -15,4 +15,12 @@ public class Hand {
         cards.add(card);
     }
 
+    public String displayHand() {
+        String outPut = "";
+        for (Card card : cards) {
+            outPut += card.display() + " ";
+        }
+        return outPut.toString().trim();
+    }
+
 }
