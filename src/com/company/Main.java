@@ -27,5 +27,14 @@ public class Main {
 
         Actor dealer = new Player(Console.getString("enter player name", true));
         Hand myHand = new Hand(dealer);
+        cardDeck.shuffle();
+        myHand.addCard(cardDeck.deal());
+        myHand.addCard(cardDeck.deal());
+
+        while (dealer.getAction(myHand) == Actor.HIT) {
+            myHand.addCard(cardDeck.deal());
+            System.out.println("HIT");
+        }
+        System.out.println("Done");
     }
 }

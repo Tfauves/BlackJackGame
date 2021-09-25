@@ -31,7 +31,7 @@ public class Player implements Actor {
 
     private String getAvailableActions() {
         StringBuilder outPut = new StringBuilder();
-        outPut.append("0. Quit\n1. Hit\n2.Stand\n3. Double\n4. Split");
+        outPut.append("0. Quit\n1. Hit\n2. Stand\n3. Double\n4. Split");
         return outPut.toString();
     }
 
