@@ -1,6 +1,7 @@
 package com.company.cardGame.actors;
 
 import com.company.cardGame.blackJack.Actor;
+import com.company.cardGame.blackJack.Hand;
 
 public class Dealer implements Actor {
     private final String NAME = "dealer";
@@ -20,7 +21,7 @@ public class Dealer implements Actor {
         return BET;
     }
 
-    public int getAction() {
+    public int getAction(Hand hand) {
         return 0;
     }
 
