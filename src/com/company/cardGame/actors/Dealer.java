@@ -4,25 +4,23 @@ import com.company.cardGame.blackJack.Actor;
 import com.company.cardGame.blackJack.Hand;
 
 public class Dealer implements Actor {
-    private final String NAME = "dealer";
-    private int balance = 0;
-    private final int BET = 0;
+    public int STAND_VALUE =17;
 
-    // TODO: 9/19/2021 implement dealer 
     public String getName() {
-        return NAME;
+        return "Jasper";
     }
 
     public int getBalance() {
-        return balance;
+        return 0;
     }
 
+    @Override
     public int getBet() {
-        return BET;
+        return 0;
     }
 
     public int getAction(Hand hand) {
-        return 0;
+        return hand.getValue() < STAND_VALUE ? HIT : STAND;
     }
 
 }
