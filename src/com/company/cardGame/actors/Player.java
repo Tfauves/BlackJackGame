@@ -13,6 +13,10 @@ public class Player implements Actor {
         startBalance = startBalance;
     }
 
+    public Player(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
