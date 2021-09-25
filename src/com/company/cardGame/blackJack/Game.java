@@ -2,8 +2,6 @@ package com.company.cardGame.blackJack;
 
 import com.company.cardGame.actors.Dealer;
 import com.company.cardGame.actors.Player;
-import com.company.cardGame.deck.Card;
-import com.company.cardGame.deck.StandardDeck;
 import com.company.cardGame.util.Console;
 import java.util.ArrayList;
 

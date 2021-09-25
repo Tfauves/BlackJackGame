@@ -19,6 +19,28 @@ public class Hand {
         cards.add(card);
     }
 
+// matts pair method
+//    public int checkPair() {
+//        for (int i = 0; i < cards.size(); i++) {
+//            int pairs = 0;
+//            for (int j = i + 1; j < cards.size(); j++) {
+//                if (cards.get(i).getValue() == cards.get(j).getValue()) {
+//                    pairs++;
+//                }
+//            }
+//            if (pairs > 0) {
+//                return 1;
+//            }
+//        }
+//
+//        return 0;
+//    }
+
+
+    public int betAmount() {
+        return bet;
+    }
+
     public String displayHand() {
         String outPut = "";
         for (Card card : cards) {
@@ -51,4 +73,11 @@ public class Hand {
         return score;
     }
 
+    public Actor getHolder() {
+        return holder;
+    }
+
+    public void setBet(int bet) {
+        this.bet = bet;
+    }
 }

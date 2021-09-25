@@ -17,17 +17,6 @@ public class Player implements Actor {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getBalance() {
-        return balance;
-    }
-
-    public int getBet() {
-        return Console.getInt(1, balance, "Enter a bet between 1 " + balance, "invalid bet");
-    }
 
     private String getAvailableActions() {
         StringBuilder outPut = new StringBuilder();
@@ -40,6 +29,23 @@ public class Player implements Actor {
         System.out.println(hand.getValue());
         return Console.getInt(0,2, getAvailableActions(), "invalid selection");
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public int getBet() {
+        return Console.getInt(1, balance, "Enter a bet between 1 " + balance, "invalid bet");
+    }
+
 
 //    public String toString() {
 //        return "| Player: " + name + " | Balance: " + balance + " |";

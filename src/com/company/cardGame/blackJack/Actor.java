@@ -9,6 +9,7 @@ public interface Actor {
     int QUIT = 0;
 
     int getBalance();
+    void setBalance(int balance);
     int getBet();
     int getAction(Hand hand);
 }

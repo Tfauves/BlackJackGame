@@ -23,4 +23,8 @@ public class Dealer implements Actor {
         return hand.getValue() < STAND_VALUE ? HIT : STAND;
     }
 
+    public void setBalance(int balance) {
+
+    }
+
 }
