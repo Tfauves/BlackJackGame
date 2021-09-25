@@ -3,7 +3,7 @@ package com.company.cardGame.util;
 import java.util.Scanner;
 
 public class Console {
-//    private Game blackJack;
+
     public final static Scanner scanner = new Scanner(System.in);
     public static final String[] ACTION_SELECTION = new String[] {
             "1. Hit",
