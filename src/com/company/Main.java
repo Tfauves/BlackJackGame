@@ -25,6 +25,7 @@ public class Main {
 //        System.out.println(myHand.displayHand());
 //        System.out.println(myHand.displayValue());
 
-        Actor dealer = new Player(Console.getString("enter player name",  true));
+        Actor dealer = new Player(Console.getString("enter player name", true));
+        Hand myHand = new Hand(dealer);
     }
 }
