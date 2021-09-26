@@ -12,43 +12,55 @@ public class Main {
 
     public static void main(String[] args) {
         Deck cardDeck = new StandardDeck();
-//        cardDeck.shuffle();
-////        System.out.println(cardDeck.deal().display());
-//        Hand playerHand = new Hand();
-//        playerHand.hit(cardDeck);
-
-//        Game blackJack = new Game();
-//        blackJack.startGame();
-//        Hand myHand = new Hand();
-//        myHand.addCard(cardDeck.deal());
-//        myHand.addCard(cardDeck.deal());
-//        System.out.println(myHand.displayHand());
-//        System.out.println(myHand.displayValue());
 
         Actor player = new Player(Console.getString("enter player name", true));
         Hand myHand = new Hand(player);
         cardDeck.shuffle();
         myHand.addCard(cardDeck.deal());
         myHand.addCard(cardDeck.deal());
-        beginRound(myHand);
+
+        myHand.setBet(myHand.getHolder().getBet());
+        myHand.getHolder().setBalance(myHand.getHolder().getBalance() - myHand.betAmount());
+        System.out.println(myHand.getHolder().getName() + "'s bet: " + myHand.betAmount() + " | Current balance: " + myHand.getHolder().getBalance());
 
         while (player.getAction(myHand) == Actor.HIT) {
             myHand.addCard(cardDeck.deal());
             System.out.println("HIT");
-
         }
         System.out.println("Done");
-    }
-
-    public static void beginRound(Hand hand) {
-        boolean isFirstRound = true;
-         while(isFirstRound) {
-             hand.setBet(hand.getHolder().getBet());
-             hand.getHolder().setBalance(hand.getHolder().getBalance() - hand.betAmount());
-             System.out.println(hand.getHolder().getName() + "'s bet: " + hand.betAmount() + " | Current balance: " + hand.getHolder().getBalance());
-             hand.getHolder().getAction(hand);
-             isFirstRound = false;
-         }
 
     }
+
+//    public static void beginRound(Hand hand) {
+////        boolean isFirstRound = true;
+////         while(isFirstRound) {
+//             hand.setBet(hand.getHolder().getBet());
+//             hand.getHolder().setBalance(hand.getHolder().getBalance() - hand.betAmount());
+//             System.out.println(hand.getHolder().getName() + "'s bet: " + hand.betAmount() + " | Current balance: " + hand.getHolder().getBalance());
+//             hand.getHolder().getAction(hand);
+////             isFirstRound = false;
+////         }
+//    }
+
+//    public static void goGame(Actor player, Hand myHand, Deck cardDeck) {
+//        myHand.setBet(myHand.getHolder().getBet());
+//        myHand.getHolder().setBalance(myHand.getHolder().getBalance() - myHand.betAmount());
+//        System.out.println(myHand.getHolder().getName() + "'s bet: " + myHand.betAmount() + " | Current balance: " + myHand.getHolder().getBalance());
+//
+//        if (player.getAction(myHand) == Actor.HIT) {
+//            while (player.getAction(myHand) == Actor.HIT) {
+//            myHand.addCard(cardDeck.deal());
+//            System.out.println("HIT");
+//            }
+//        }
+//        else if (player.getAction(myHand) == Actor.DOUBLE && player.getBalance() >= myHand.betAmount()) {
+//            myHand.addCard(cardDeck.deal());
+//            myHand.getHolder().setBalance(myHand.getHolder().getBalance() - myHand.betAmount());
+//            System.out.println(myHand.getHolder().getName() + "'s bet: " + myHand.betAmount() + " | Current balance: " + myHand.getHolder().getBalance());
+//            System.out.println("Double");
+//        }
+//        System.out.println("Done");
+//
+//    }
+
 }

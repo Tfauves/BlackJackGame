@@ -45,8 +45,9 @@ public class Player implements Actor {
     public int getAction(Hand hand) {
         System.out.println(hand.displayHand());
         System.out.println(hand.getValue());
-        return Console.getInt(0,4, getAvailableActions(), "invalid selection");
+        return Console.getInt(0,3, getAvailableActions(), "invalid selection");
     }
+
 
     public String getName() {
         return name;
