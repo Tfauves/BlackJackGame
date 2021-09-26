@@ -25,19 +25,19 @@ public class Main {
 //        System.out.println(myHand.displayHand());
 //        System.out.println(myHand.displayValue());
 
-        Actor dealer = new Player(Console.getString("enter player name", true));
-        Hand myHand = new Hand(dealer);
+        Actor player = new Player(Console.getString("enter player name", true));
+        Hand myHand = new Hand(player);
         cardDeck.shuffle();
         myHand.addCard(cardDeck.deal());
         myHand.addCard(cardDeck.deal());
         beginRound(myHand);
 
-//        while (dealer.getAction(myHand) == Actor.HIT) {
-//            myHand.addCard(cardDeck.deal());
-//            System.out.println("HIT");
-//
-//        }
-//        System.out.println("Done");
+        while (player.getAction(myHand) == Actor.HIT) {
+            myHand.addCard(cardDeck.deal());
+            System.out.println("HIT");
+
+        }
+        System.out.println("Done");
     }
 
     public static void beginRound(Hand hand) {
@@ -49,5 +49,6 @@ public class Main {
              hand.getHolder().getAction(hand);
              isFirstRound = false;
          }
+
     }
 }

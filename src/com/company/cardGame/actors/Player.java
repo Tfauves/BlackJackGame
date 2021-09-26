@@ -24,7 +24,7 @@ public class Player implements Actor {
         return outPut.toString();
     }
 
-    private String firstRoundActions() {
+    public String getFirstRoundActions() {
         StringBuilder outPut = new StringBuilder();
         outPut.append("0. Quit\n1. Hit\n2. Stand\n3.");
         return outPut.toString();
