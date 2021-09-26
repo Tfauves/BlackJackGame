@@ -7,6 +7,7 @@ import com.company.cardGame.util.Console;
 public class Player implements Actor {
     private final String name;
     private int balance = 1000;
+    public boolean isFirstRd = true;
 
     public Player (String name, int startBalance) {
         this.name = name;
@@ -20,15 +21,19 @@ public class Player implements Actor {
 
     private String getAvailableActions() {
         StringBuilder outPut = new StringBuilder();
-        outPut.append("0. Quit\n1. Hit\n2. Stand\n3. Double\n4. Split");
+        if (isFirstRd) {
+            outPut.append("0. Quit\n1. Hit\n2. Stand\n3. Double\n4. Split");
+            isFirstRd = false;
+            return outPut.toString();
+        }
+        outPut.append("0. Quit\n1. Hit\n2. Stand");
         return outPut.toString();
+
     }
 
-    public String getFirstRoundActions() {
-        StringBuilder outPut = new StringBuilder();
-        outPut.append("0. Quit\n1. Hit\n2. Stand\n3.");
-        return outPut.toString();
-    }
+//    public String getFirstRoundActions() {
+//        StringBuilder outPut = new StringBuilder();
+//    }
 
     public int getAction(Hand hand) {
         System.out.println(hand.displayHand());
