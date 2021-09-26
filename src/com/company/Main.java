@@ -32,12 +32,12 @@ public class Main {
         myHand.addCard(cardDeck.deal());
         beginRound(myHand);
 
-        while (dealer.getAction(myHand) == Actor.HIT) {
-            myHand.addCard(cardDeck.deal());
-            System.out.println("HIT");
-
-        }
-        System.out.println("Done");
+//        while (dealer.getAction(myHand) == Actor.HIT) {
+//            myHand.addCard(cardDeck.deal());
+//            System.out.println("HIT");
+//
+//        }
+//        System.out.println("Done");
     }
 
     public static void beginRound(Hand hand) {
@@ -45,7 +45,8 @@ public class Main {
          while(isFirstRound) {
              hand.setBet(hand.getHolder().getBet());
              hand.getHolder().setBalance(hand.getHolder().getBalance() - hand.betAmount());
-             System.out.println(hand.getHolder().getBalance());
+             System.out.println(hand.getHolder().getName() + "'s bet: " + hand.betAmount() + " | Current balance: " + hand.getHolder().getBalance());
+             hand.getHolder().getAction(hand);
              isFirstRound = false;
          }
     }

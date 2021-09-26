@@ -24,10 +24,16 @@ public class Player implements Actor {
         return outPut.toString();
     }
 
+    private String firstRoundActions() {
+        StringBuilder outPut = new StringBuilder();
+        outPut.append("0. Quit\n1. Hit\n2. Stand\n3.");
+        return outPut.toString();
+    }
+
     public int getAction(Hand hand) {
         System.out.println(hand.displayHand());
         System.out.println(hand.getValue());
-        return Console.getInt(0,2, getAvailableActions(), "invalid selection");
+        return Console.getInt(0,4, getAvailableActions(), "invalid selection");
     }
 
     public String getName() {
@@ -43,7 +49,7 @@ public class Player implements Actor {
     }
 
     public int getBet() {
-        return Console.getInt(1, balance, "Enter a bet between 1 " + balance, "invalid bet");
+        return Console.getInt(1, balance, "Enter a bet between 1 - " + balance, "invalid bet");
     }
 
 
