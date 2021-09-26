@@ -22,12 +22,15 @@ public class Main {
         myHand.setBet(myHand.getHolder().getBet());
         myHand.getHolder().setBalance(myHand.getHolder().getBalance() - myHand.betAmount());
         System.out.println(myHand.getHolder().getName() + "'s bet: " + myHand.betAmount() + " | Current balance: " + myHand.getHolder().getBalance());
+        goGame(player, myHand, cardDeck);
 
-        while (player.getAction(myHand) == Actor.HIT) {
-            myHand.addCard(cardDeck.deal());
-            System.out.println("HIT");
-        }
-        System.out.println("Done");
+//        while (player.getAction(myHand) == Actor.HIT) {
+//            myHand.addCard(cardDeck.deal());
+//            System.out.println("HIT");
+//        }
+//        System.out.println("Done");
+
+
 
     }
 
@@ -42,25 +45,30 @@ public class Main {
 ////         }
 //    }
 
-//    public static void goGame(Actor player, Hand myHand, Deck cardDeck) {
-//        myHand.setBet(myHand.getHolder().getBet());
-//        myHand.getHolder().setBalance(myHand.getHolder().getBalance() - myHand.betAmount());
-//        System.out.println(myHand.getHolder().getName() + "'s bet: " + myHand.betAmount() + " | Current balance: " + myHand.getHolder().getBalance());
-//
-//        if (player.getAction(myHand) == Actor.HIT) {
-//            while (player.getAction(myHand) == Actor.HIT) {
-//            myHand.addCard(cardDeck.deal());
-//            System.out.println("HIT");
-//            }
-//        }
-//        else if (player.getAction(myHand) == Actor.DOUBLE && player.getBalance() >= myHand.betAmount()) {
-//            myHand.addCard(cardDeck.deal());
-//            myHand.getHolder().setBalance(myHand.getHolder().getBalance() - myHand.betAmount());
-//            System.out.println(myHand.getHolder().getName() + "'s bet: " + myHand.betAmount() + " | Current balance: " + myHand.getHolder().getBalance());
-//            System.out.println("Double");
-//        }
-//        System.out.println("Done");
-//
-//    }
+    public static void goGame(Actor player, Hand myHand, Deck cardDeck) {
+        hitIt(player, myHand, cardDeck);
+        doubleDown(player, myHand, cardDeck);
+        System.out.println("Done");
+
+    }
+
+    public static void doubleDown(Actor player, Hand myHand, Deck cardDeck) {
+        if (player.getAction(myHand) == Actor.DOUBLE && player.getBalance() >= myHand.betAmount()) {
+            myHand.addCard(cardDeck.deal());
+            myHand.getHolder().setBalance(myHand.getHolder().getBalance() - myHand.betAmount());
+            System.out.println(myHand.getHolder().getName() + "'s bet: " + myHand.betAmount() + " | Current balance: " + myHand.getHolder().getBalance());
+            System.out.println("Double");
+        }
+        System.out.println("Done");
+    }
+
+    public static void hitIt(Actor player, Hand myHand, Deck cardDeck) {
+        while (player.getAction(myHand) == Actor.HIT) {
+            myHand.addCard(cardDeck.deal());
+            System.out.println("HIT");
+        }
+        System.out.println("Done");
+
+    }
 
 }
