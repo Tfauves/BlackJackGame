@@ -36,6 +36,20 @@ public class Hand {
 //        return 0;
 //    }
 
+    //my check pair
+    public void checkPair() {
+        boolean hasPair = false;
+        for (Card card : cards) {
+            if (card.getFaceValue() == card.getFaceValue()) {
+                hasPair = true;
+            }
+        }
+        if (hasPair) {
+
+            System.out.println("pair");
+        }
+    }
+
 
     public int betAmount() {
         return bet;
@@ -80,4 +94,5 @@ public class Hand {
     public void setBet(int bet) {
         this.bet = bet;
     }
+
 }

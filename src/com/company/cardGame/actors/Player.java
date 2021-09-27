@@ -38,10 +38,6 @@ public class Player implements Actor {
 
     }
 
-//    public String getFirstRoundActions() {
-//        StringBuilder outPut = new StringBuilder();
-//    }
-
     public int getAction(Hand hand) {
         System.out.println(hand.displayHand());
         System.out.println(hand.getValue());
@@ -65,8 +61,4 @@ public class Player implements Actor {
         return Console.getInt(1, balance, "Enter a bet between 1 - " + balance, "invalid bet");
     }
 
-
-//    public String toString() {
-//        return "| Player: " + name + " | Balance: " + balance + " |";
-//    }
 }
