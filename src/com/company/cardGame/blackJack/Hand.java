@@ -54,7 +54,10 @@ public class Hand {
             );
 
             System.out.println("Split");
+        } else {
+            holder.getAction(hand);
         }
+
     }
 
 
