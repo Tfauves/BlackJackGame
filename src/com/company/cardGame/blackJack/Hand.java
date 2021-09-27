@@ -2,6 +2,7 @@ package com.company.cardGame.blackJack;
 
 
 import com.company.cardGame.deck.Card;
+import com.company.cardGame.deck.Deck;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,16 +38,17 @@ public class Hand {
 //    }
 
     //my check pair
-    public void checkPair() {
+    public void checkPair(Hand hand, Deck cardDeck) {
         boolean hasPair = false;
         for (Card card : cards) {
             if (card.getFaceValue() == card.getFaceValue()) {
                 hasPair = true;
             }
         }
-        if (hasPair) {
+        if (hasPair && holder.getBalance() >= bet) {
 
-            System.out.println("pair");
+            System.out.println("Split");
+            hand.addCard(cardDeck.deal());
         }
     }
 

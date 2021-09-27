@@ -49,7 +49,7 @@ public class Main {
 //            myHand.checkPair();
 //        }
 
-        myHand.checkPair();
+        myHand.checkPair(myHand, cardDeck);
 
 
     }
