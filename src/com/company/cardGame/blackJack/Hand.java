@@ -46,9 +46,14 @@ public class Hand {
             }
         }
         if (hasPair && holder.getBalance() >= bet) {
+            hand.addCard(cardDeck.deal());
+            hand.getHolder().setBalance(hand.getHolder().getBalance() - hand.betAmount());
+            System.out.println(hand.getHolder().getName() +
+            "'s bet: " + hand.betAmount() +
+            " | Current balance: " + hand.getHolder().getBalance()
+            );
 
             System.out.println("Split");
-            hand.addCard(cardDeck.deal());
         }
     }
 
