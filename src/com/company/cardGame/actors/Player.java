@@ -31,14 +31,15 @@ public class Player implements Actor {
         actionsCount = 2;
         StringBuilder outPut = new StringBuilder();
         outPut.append("0. Quit\n1. Hit\n2. Stand");
-        if (hand.s) {
-            outPut.append("0. Quit\n1. Hit\n2. Stand\n3. Double\n4. Split");
-            isFirstRd = false;
-            return outPut.toString();
+        if (hand.getSize() == 2 && balance >= hand.betAmount()) {
+            outPut.append("\n3. Double");
+            actionsCount++;
+            if (hand.canSplit()) {
+                outPut.append("\n4. Split");
+                actionsCount++;
+            }
         }
-        outPut.append("0. Quit\n1. Hit\n2. Stand");
         return outPut.toString();
-
     }
 
     public int getAction(Hand hand) {

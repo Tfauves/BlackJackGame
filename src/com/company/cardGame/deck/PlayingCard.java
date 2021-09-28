@@ -1,7 +1,5 @@
 package com.company.cardGame.deck;
 
-import com.company.cardGame.deck.Card;
-
 public class PlayingCard extends Card {
 
     public PlayingCard(String suit, int faceValue) {
@@ -9,18 +7,18 @@ public class PlayingCard extends Card {
     }
 
     public String toString() {
-        return getFaceValue() + " " + getSuit();
+        return getRank() + " " + getSuit();
     }
 
     @Override
     public String display() {
         String outPut = "";
-        switch (getFaceValue()) {
+        switch (getRank()) {
             case 1 -> outPut = "Ace";
             case 11 -> outPut = "Jack";
             case 12 -> outPut = "Queen";
             case 13 -> outPut = "King";
-            default -> outPut = getFaceValue() == 10 ? Integer.toString(getFaceValue()) : " " + getFaceValue();
+            default -> outPut = getRank() == 10 ? Integer.toString(getRank()) : " " + getRank();
         };
         return outPut + " " + getSuit();
 

@@ -2,22 +2,22 @@ package com.company.cardGame.deck;
 
 public abstract class Card {
     private final String suit;
-    private final int faceValue;
+    private final int rank;
 
-    public Card(String suit, int faceValue) {
+    public Card(String suit, int rank) {
         this.suit = suit;
-        this.faceValue = faceValue;
+        this.rank = rank;
     }
 
     public String toString() {
-        return faceValue + " " + suit;
+        return rank + " " + suit;
     }
 
     public abstract String display();
 
 
-    public int getFaceValue() {
-        return faceValue;
+    public int getRank() {
+        return rank;
     }
 
     public String getSuit() {

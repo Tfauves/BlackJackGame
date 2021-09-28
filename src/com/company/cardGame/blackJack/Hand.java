@@ -41,7 +41,7 @@ public class Hand {
     public void checkPair(Hand hand, Deck cardDeck) {
         boolean hasPair = false;
         for (Card card : cards) {
-            if (card.getFaceValue() == card.getFaceValue()) {
+            if (card.getRank() == card.getRank()) {
                 hasPair = true;
             }
         }
@@ -77,7 +77,7 @@ public class Hand {
         int score = 0;
         boolean hasAce11 = false;
         for (Card card : cards) {
-            int value = card.getFaceValue();
+            int value = card.getRank();
             switch (value) {
                 case 1 -> {
                     value = score + 11 > 21 ? 1 : 11;
@@ -108,5 +108,7 @@ public class Hand {
     public int getSize() {
         return cards.size();
     }
+
+    public boolean canSplit() {return cards.get(0).getRank() == cards.get(1).getRank();}
 
 }
