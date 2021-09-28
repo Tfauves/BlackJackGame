@@ -24,12 +24,25 @@ public class Table {
 
     private void displayTable() {
          StringBuilder outPut = new StringBuilder();
-         outPut.append("Dealer: ").append(dealer.displayHand()).app
-      for (Actor player : actors) {
-          System.out.println(player.getName());
-      }
+         outPut.append("Dealer: ").append(dealer.displayHand()).append("\n");
+         outPut.append("Player: ").append(player.displayHand());
+        System.out.println(outPut);
 
     }
+
+    private void determineWinner() {
+         if (player.getValue() > dealer.getValue()) {
+             System.out.println("Player Wins");
+             return;
+         }
+
+         if (player.getValue() == dealer.getValue()) {
+             System.out.println("Push");
+             return;
+         }
+        System.out.println("Dealer Wins");
+    }
+
 
 
 
