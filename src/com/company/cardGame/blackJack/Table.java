@@ -16,9 +16,9 @@ public class Table {
          deck = new StandardDeck();
          deck.shuffle();
          deal();
-         displayTable();
-         turn(player);
-         turn(dealer);
+//         displayTable();
+        turn(player);
+        turn(dealer);
          determineWinner();
 
      }
@@ -62,6 +62,22 @@ public class Table {
             case 4 -> System.out.println("Split");
             default -> System.out.println("ERROR bad action");
         }
+    }
+
+    private void hit(Hand activeHand) {
+        // TODO: 9/27/2021 hit
+    }
+
+    private void stand(Hand activeHand) {
+        // TODO: 9/27/2021 stand
+    }
+
+    private void doubleDown(Hand activeHand) {
+        // TODO: 9/27/2021 doubleDown
+    }
+
+    private void split(Hand activeHand) {
+        doubleDown(activeHand);
     }
 
 

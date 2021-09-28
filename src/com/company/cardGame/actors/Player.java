@@ -7,7 +7,7 @@ import com.company.cardGame.util.Console;
 public class Player implements Actor {
     private final String name;
     private int balance = 1000;
-    public boolean isFirstRd = true;
+//    public boolean isFirstRd = true;
     private int actionsCount;
 
     public Player (String name, int startBalance) {
