@@ -43,6 +43,19 @@ public class Table {
         System.out.println("Dealer Wins");
     }
 
+    private void turn(Hand activeHand) {
+        System.out.println("Dealer: " + dealer.displayHand());
+        int action = activeHand.getAction();
+        switch (action) {
+            case 0 -> System.out.println("Quit");
+            case 1 -> System.out.println("Hit");
+            case 2 -> System.out.println("Stand");
+            case 3 -> System.out.println("Double Down");
+            case 4 -> System.out.println("Split");
+            default -> System.out.println("ERROR bad action");
+        }
+    }
+
 
 
 

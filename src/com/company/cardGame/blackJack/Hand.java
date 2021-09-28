@@ -97,9 +97,9 @@ public class Hand {
         return score;
     }
 
-    public Actor getHolder() {
-        return holder;
-    }
+ public int getAction() {
+        return holder.getAction(this);
+ }
 
     public void setBet(int bet) {
         this.bet = bet;
