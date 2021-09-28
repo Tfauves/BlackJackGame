@@ -105,4 +105,8 @@ public class Hand {
         this.bet = bet;
     }
 
+    public int getSize() {
+        return cards.size();
+    }
+
 }

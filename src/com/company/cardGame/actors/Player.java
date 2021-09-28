@@ -8,6 +8,7 @@ public class Player implements Actor {
     private final String name;
     private int balance = 1000;
     public boolean isFirstRd = true;
+    private int actionsCount;
 
     public Player (String name, int startBalance) {
         this.name = name;
@@ -26,9 +27,11 @@ public class Player implements Actor {
 
     // TODO: 9/23/2021 3. add logic for split detect pair.
 
-    private String getAvailableActions() {
+    private String getAvailableActions(Hand hand) {
+        actionsCount = 2;
         StringBuilder outPut = new StringBuilder();
-        if (isFirstRd) {
+        outPut.append("0. Quit\n1. Hit\n2. Stand");
+        if (hand.s) {
             outPut.append("0. Quit\n1. Hit\n2. Stand\n3. Double\n4. Split");
             isFirstRd = false;
             return outPut.toString();
@@ -41,7 +44,7 @@ public class Player implements Actor {
     public int getAction(Hand hand) {
         System.out.println(hand.displayHand());
         System.out.println(hand.getValue());
-        return Console.getInt(0,3, getAvailableActions(), "invalid selection");
+        return Console.getInt(0,3, getAvailableActions(hand), "invalid selection");
     }
 
 
