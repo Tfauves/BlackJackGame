@@ -1,49 +1,36 @@
 package com.company.cardGame.blackJack;
 
 import com.company.cardGame.actors.Dealer;
+import com.company.cardGame.actors.Player;
+import com.company.cardGame.deck.Deck;
 
 import java.util.List;
 
 public class Table {
-    private List<Hand> hands;
-    private List<Actor> actors;
-    private Dealer dealer;
+     Hand player = new Hand(new Player("player"));
+     Hand dealer = new Hand(new Dealer());
+     Deck deck;
 
-    public Table(List hands, List actors, Dealer dealer) {
-        this.hands = hands;
-        this.actors = actors;
-        this. dealer = dealer;
-    }
+     public void playRound() {
 
+     }
 
-    public void displayBets() {
+     private void deal() {
+         for (int count = 0; count < 2; count++) {
+             player.addCard(deck.draw());
+             dealer.addCard(deck.draw());
+         }
+     }
 
-    }
-
-    public void displayTable() {
+    private void displayTable() {
+         StringBuilder outPut = new StringBuilder();
+         outPut.append("Dealer: ").append(dealer.displayHand()).app
       for (Actor player : actors) {
           System.out.println(player.getName());
       }
 
     }
 
-    public void removePlayer() {
 
-    }
 
-    public List getActors() {
-        return actors;
-    }
-
-    public void setActors(List actors) {
-        this.actors = actors;
-    }
-
-    public Dealer getDealer() {
-        return dealer;
-    }
-
-    public List<Hand> getHands() {
-        return hands;
-    }
 }

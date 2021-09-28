@@ -3,10 +3,8 @@ package com.company;
 import com.company.cardGame.actors.Player;
 import com.company.cardGame.blackJack.Actor;
 import com.company.cardGame.blackJack.Hand;
-import com.company.cardGame.deck.Card;
 import com.company.cardGame.deck.CheatDeck;
 import com.company.cardGame.deck.Deck;
-import com.company.cardGame.deck.StandardDeck;
 import com.company.cardGame.util.Console;
 
 
@@ -18,8 +16,8 @@ public class Main {
         Actor player = new Player(Console.getString("enter player name", true));
         Hand myHand = new Hand(player);
         cardDeck.shuffle();
-        myHand.addCard(cardDeck.deal());
-        myHand.addCard(cardDeck.deal());
+        myHand.addCard(cardDeck.draw());
+        myHand.addCard(cardDeck.draw());
 
         myHand.setBet(myHand.getHolder().getBet());
         myHand.getHolder().setBalance(myHand.getHolder().getBalance() - myHand.betAmount());

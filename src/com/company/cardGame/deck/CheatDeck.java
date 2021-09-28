@@ -12,7 +12,7 @@ public class CheatDeck implements Deck {
     public void shuffle() {}
 
     @Override
-    public Card deal() {
+    public Card draw() {
         int faceValue = Console.getInt("enter a number 1-13", 1, 13, "invalid entry");
         int suit = Console.getInt("1. \u2664 | 2. \u2665 | 3. \u2666 | 4. \u2667", 1, 4, "invalid entry");
         return new PlayingCard(SUIT[suit - 1], faceValue);

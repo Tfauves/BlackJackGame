@@ -46,7 +46,7 @@ public class Hand {
             }
         }
         if (hasPair && holder.getBalance() >= bet) {
-            hand.addCard(cardDeck.deal());
+            hand.addCard(cardDeck.draw());
             hand.getHolder().setBalance(hand.getHolder().getBalance() - hand.betAmount());
             System.out.println(hand.getHolder().getName() +
             "'s bet: " + hand.betAmount() +
