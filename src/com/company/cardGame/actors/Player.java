@@ -45,7 +45,7 @@ public class Player implements Actor {
     public int getAction(Hand hand) {
         System.out.println(hand.displayHand());
         System.out.println(hand.getValue());
-        return Console.getInt(0,3, getAvailableActions(hand), "invalid selection");
+        return Console.getInt(getAvailableActions(hand), 0,actionsCount, "invalid selection");
     }
 
 
@@ -62,7 +62,7 @@ public class Player implements Actor {
     }
 
     public int getBet() {
-        return Console.getInt(1, balance, "Enter a bet between 1 - " + balance, "invalid bet");
+        return Console.getInt("Enter a bet between 1 - " + balance, 1, balance, "invalid bet");
     }
 
 }

@@ -12,7 +12,7 @@ public class Console {
             "4. Double Down"
     };
 
-    public static int getInt(int min, int max, String prompt, String errorMsg) {
+    public static int getInt(String prompt, int min, int max, String errorMsg) {
         int option = min - 1;
         do {
             System.out.println(prompt);
