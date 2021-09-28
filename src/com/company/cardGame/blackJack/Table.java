@@ -3,6 +3,7 @@ package com.company.cardGame.blackJack;
 import com.company.cardGame.actors.Dealer;
 import com.company.cardGame.actors.Player;
 import com.company.cardGame.deck.Deck;
+import com.company.cardGame.deck.StandardDeck;
 
 import java.util.List;
 
@@ -12,6 +13,13 @@ public class Table {
      Deck deck;
 
      public void playRound() {
+         deck = new StandardDeck();
+         deck.shuffle();
+         deal();
+         displayTable();
+         turn(player);
+         turn(dealer);
+         determineWinner();
 
      }
 

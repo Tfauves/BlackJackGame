@@ -9,23 +9,23 @@ public class Game {
     private Table table;
     private Hand hand;
 
-    public void startGame() {
-        table = new Table(new ArrayList(), new ArrayList(), new Dealer());
-        getPlayers();
-//        table.displayTable();
-        getPlayerHand(table);
-    }
+//    public void startGame() {
+//        table = new Table(new ArrayList(), new ArrayList(), new Dealer());
+//        getPlayers();
+////        table.displayTable();
+//        getPlayerHand(table);
+//    }
 
     // TODO: 9/19/2021 check into line 2
-    public void getPlayers() {
-        int numbOfPlayers = Console.getInt("enter number of players: ", 1, 12, "invalid entry");
-        for (int i = 0; i < numbOfPlayers; i++) {
-            String playerName = Console.getString("Enter Player Name: ", true);
-            Player player = new Player(playerName, 100);
-            table.getActors().add(player);
-        }
-
-    }
+//    public void getPlayers() {
+//        int numbOfPlayers = Console.getInt("enter number of players: ", 1, 12, "invalid entry");
+//        for (int i = 0; i < numbOfPlayers; i++) {
+//            String playerName = Console.getString("Enter Player Name: ", true);
+//            Player player = new Player(playerName, 100);
+//            table.getActors().add(player);
+//        }
+//
+//    }
 
     public void getPlayerHand(Table table) {
 

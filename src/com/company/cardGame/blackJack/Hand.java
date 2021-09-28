@@ -38,27 +38,27 @@ public class Hand {
 //    }
 
     //my check pair
-    public void checkPair(Hand hand, Deck cardDeck) {
-        boolean hasPair = false;
-        for (Card card : cards) {
-            if (card.getRank() == card.getRank()) {
-                hasPair = true;
-            }
-        }
-        if (hasPair && holder.getBalance() >= bet) {
-            hand.addCard(cardDeck.draw());
-            hand.getHolder().setBalance(hand.getHolder().getBalance() - hand.betAmount());
-            System.out.println(hand.getHolder().getName() +
-            "'s bet: " + hand.betAmount() +
-            " | Current balance: " + hand.getHolder().getBalance()
-            );
-
-            System.out.println("Split");
-        } else {
-            holder.getAction(hand);
-        }
-
-    }
+//    public void checkPair(Hand hand, Deck cardDeck) {
+//        boolean hasPair = false;
+//        for (Card card : cards) {
+//            if (card.getRank() == card.getRank()) {
+//                hasPair = true;
+//            }
+//        }
+//        if (hasPair && holder.getBalance() >= bet) {
+//            hand.addCard(cardDeck.draw());
+//            hand.getHolder().setBalance(hand.getHolder().getBalance() - hand.betAmount());
+//            System.out.println(hand.getHolder().getName() +
+//            "'s bet: " + hand.betAmount() +
+//            " | Current balance: " + hand.getHolder().getBalance()
+//            );
+//
+//            System.out.println("Split");
+//        } else {
+//            holder.getAction(hand);
+//        }
+//
+//    }
 
 
     public int betAmount() {
