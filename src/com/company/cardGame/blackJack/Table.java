@@ -74,17 +74,23 @@ public class Table {
         // TODO: hit
         activeHand.addCard(deck.draw());
         System.out.println(player.displayHand() +"\nHand total: " + player.getValue());
+        System.out.println(dealer.displayHand() +"\nHand total: " + dealer.getValue());
 
     }
 
     private void stand(Hand activeHand) {
         // TODO: stand
-        System.out.println("end turn");
+
 
     }
 
     private void doubleDown(Hand activeHand) {
         // TODO: double
+        activeHand.addCard(deck.draw());
+
+        System.out.println(player.displayHand() +"\nHand total: " + player.getValue());
+
+
     }
 
     private void split(Hand activeHand) {
