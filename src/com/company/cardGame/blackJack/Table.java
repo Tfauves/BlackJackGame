@@ -62,10 +62,9 @@ public class Table {
             case 1 -> hit(activeHand);
             case 2 -> stand(activeHand);
             case 3 -> doubleDown(activeHand);
-            case 4 -> System.out.println("two hands");
+            case 4 -> split(activeHand);
             default -> System.out.println("ERROR bad action " + action);
         }
-        System.out.println(activeHand.displayHand() + "\n");
 
     }
 
@@ -94,6 +93,7 @@ public class Table {
     }
 
     private void split(Hand activeHand) {
+        System.out.println("two hands");
         doubleDown(activeHand);
     }
 }
