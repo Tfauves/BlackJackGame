@@ -111,6 +111,10 @@ public class Hand {
         bet = holder.getBalance();
     }
 
+    public int getBalance() {
+        return holder.getBalance();
+    }
+
     public String getName() {
         return holder.getName();
     }

@@ -22,7 +22,7 @@ public class Player implements Actor {
         actionsCount = 2;
         StringBuilder outPut = new StringBuilder();
         outPut.append("0. Quit\n1. Hit\n2. Stand");
-        if (hand.getSize() == 2 && balance >= hand.betAmount()) {
+        if (hand.getSize() == 2 && balance >= hand.getBet()) {
             outPut.append("\n3. Double");
             actionsCount++;
             if (hand.canSplit()) {

@@ -4,27 +4,28 @@ import com.company.cardGame.actors.Player;
 import com.company.cardGame.deck.Deck;
 import com.company.cardGame.deck.StandardDeck;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Table {
     Hand player = new Hand(new Player("player"));
+    List<Hand> hands = new ArrayList<>();
+    List<Actor> players = new ArrayList<>();
     Hand dealer = new Hand(new Dealer());
     Deck deck;
+    int BUST_VALUE = 21;
 
     public void playRound() {
         deck = new StandardDeck();
         deck.shuffle();
-        /*
-        0. take bets
-        1. deal cards
-        b2. see who won
-        a2. players turn
-        a3. dealers turn
-        a4. see who one
-         */
+        player.placeBet();
         deal();
         displayTable();
-        turn(player);
-        turn(dealer);
+        while (turn(player)) {}
+        while(turn(dealer));
+        displayTable();
         determineWinner();
+        System.out.println(player.getBalance());
     }
 
     private void displayTable() {
@@ -43,57 +44,65 @@ public class Table {
     }
 
     private void determineWinner() {
-        if (player.getValue() > dealer.getValue()) {
+        if (player.getValue() > BUST_VALUE) {
+            System.out.println("Player Busted");
+            return;
+        }
+        if (player.getValue() > dealer.getValue() || dealer.getValue() > BUST_VALUE) {
             System.out.println("Player Wins");
+            player.payOut(Hand.NORMAL_PAY);
             return;
         }
         if (player.getValue() == dealer.getValue()) {
             System.out.println("Push");
+            player.payOut(Hand.PUSH_PAY);
             return;
         }
         System.out.println("Dealer Wins");
     }
 
-    private void turn(Hand activeHand) {
-        System.out.println("Dealer: " + dealer.displayHand());
+    private boolean turn(Hand activeHand) {
+        System.out.println(dealer.getName() + " " + dealer.displayHand());
         int action = activeHand.getAction();
-        switch (action) {
-            case 0 -> System.out.println("Quiting");
-            case 1 -> hit(activeHand);
-            case 2 -> stand(activeHand);
-            case 3 -> doubleDown(activeHand);
-            case 4 -> split(activeHand);
-            default -> System.out.println("ERROR bad action " + action);
-        }
-
+        return switch (action) {
+            case Actor.QUIT -> stand(activeHand);
+            case Actor.HIT -> hit(activeHand);
+            case Actor.STAND -> stand(activeHand);
+            case Actor.DOUBLE -> doubleDown(activeHand);
+            case Actor.SPLIT -> split(activeHand);
+            default -> false;
+        };
     }
 
-    private void hit(Hand activeHand) {
+    private boolean hit(Hand activeHand) {
         // TODO: hit
         activeHand.addCard(deck.draw());
         System.out.println("Hit me");
-
-
+        if (activeHand.getValue() > BUST_VALUE) {
+            System.out.println("Busted");
+            return false;
+        }
+        return true;
     }
 
-    private void stand(Hand activeHand) {
+    private boolean stand(Hand activeHand) {
         // TODO: stand
         System.out.println("Waves Hand");
-
-
+        return false;
     }
 
-    private void doubleDown(Hand activeHand) {
+    private boolean doubleDown(Hand activeHand) {
         // TODO: double
         activeHand.doubleBet();
         System.out.println("Double Down");
         hit(activeHand);
         stand(activeHand);
+        return false;
 
     }
 
-    private void split(Hand activeHand) {
+    private boolean split(Hand activeHand) {
         System.out.println("two hands");
-        doubleDown(activeHand);
+        return doubleDown(activeHand);
     }
 }
