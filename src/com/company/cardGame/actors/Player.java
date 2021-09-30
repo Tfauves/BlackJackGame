@@ -7,7 +7,6 @@ import com.company.cardGame.util.Console;
 public class Player implements Actor {
     private final String name;
     private int balance = 1000;
-//    public boolean isFirstRd = true;
     private int actionsCount;
 
     public Player (String name, int startBalance) {
@@ -18,7 +17,6 @@ public class Player implements Actor {
     public Player(String name) {
         this.name = name;
     }
-
 
     private String getAvailableActions(Hand hand) {
         actionsCount = 2;
@@ -50,12 +48,13 @@ public class Player implements Actor {
         return balance;
     }
 
-    public void setBalance(int balance) {
-        this.balance = balance;
+    public int placeBet() {
+        int bet = Console.getInt("Enter a bet between 1 - " + balance, 1, balance, "invalid bet");
+        balance -= bet;
+        return bet;
     }
 
-    public int getBet() {
-        return Console.getInt("Enter a bet between 1 - " + balance, 1, balance, "invalid bet");
+    public void addBalance(int amt) {
+        balance += amt;
     }
-
 }
