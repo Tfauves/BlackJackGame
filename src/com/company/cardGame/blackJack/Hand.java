@@ -108,7 +108,7 @@ public class Hand {
     }
 
     public void placeBet() {
-        bet = holder.getBalance();
+        bet = holder.placeBet();
     }
 
     public int getBalance() {
