@@ -2,7 +2,6 @@ package com.company.cardGame.blackJack;
 
 
 import com.company.cardGame.deck.Card;
-import com.company.cardGame.deck.Deck;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +10,9 @@ public class Hand {
     private List<Card> cards = new ArrayList<>();
     private int bet = 0;
     private Actor holder;
+
+    public static final int PUSH_PAY = 0;
+    public static final int NORMAL_PAY = 1;
 
     public Hand(Actor holder) {
         this.holder = holder;
@@ -60,16 +62,12 @@ public class Hand {
 //
 //    }
 
-
-    public int betAmount() {
-        return bet;
-    }
-
     public String displayHand() {
-        String outPut = "";
+        StringBuilder outPut = new StringBuilder();
         for (Card card : cards) {
-            outPut += card.display() + " ";
+            outPut.append(card.display()).append(" ");
         }
+
         return outPut.toString().trim();
     }
 
@@ -101,18 +99,33 @@ public class Hand {
         return holder.getAction(this);
  }
 
-    public void setBet(int bet) {
-        this.bet = bet;
-    }
-
     public int getSize() {
         return cards.size();
+    }
+
+    public int getBet() {
+        return bet;
+    }
+
+    public void placeBet() {
+        bet = holder.getBalance();
+    }
+
+    public String getName() {
+        return holder.getName();
     }
 
     public boolean canSplit() {return cards.get(0).getRank() == cards.get(1).getRank();}
 
     public void doubleBet() {
         bet *= 2;
+    }
+
+    public void payOut(int type) {
+        switch (type) {
+            case PUSH_PAY -> holder.getBalance();
+            case NORMAL_PAY -> holder.addBalance(bet * 2);
+        }
     }
 
 }
