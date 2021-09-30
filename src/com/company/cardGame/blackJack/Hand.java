@@ -111,4 +111,8 @@ public class Hand {
 
     public boolean canSplit() {return cards.get(0).getRank() == cards.get(1).getRank();}
 
+    public void doubleBet() {
+        bet *= 2;
+    }
+
 }
