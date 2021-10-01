@@ -13,6 +13,7 @@ public class Hand {
 
     public static final int PUSH_PAY = 0;
     public static final int NORMAL_PAY = 1;
+    public static final int BLACK_JACK = 2;
 
     public Hand(Actor holder) {
         this.holder = holder;
@@ -129,7 +130,16 @@ public class Hand {
         switch (type) {
             case PUSH_PAY -> holder.getBalance();
             case NORMAL_PAY -> holder.addBalance(bet * 2);
+            case BLACK_JACK -> holder.addBalance(bet * 2.5);
         }
+    }
+
+    public Hand splitHand() {
+        bet = bet / 2;
+        Hand hand = new Hand(holder);
+        hand.addCard(cards.remove(1));
+        hand.bet = bet;
+        return hand;
     }
 
 }
