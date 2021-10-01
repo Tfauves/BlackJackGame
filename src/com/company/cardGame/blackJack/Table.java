@@ -43,7 +43,22 @@ public class Table {
         endRound();
     }
 
+    private void getBets() {
+        for (Hand player : hands) {
+            player.placeBet();
+        }
+    }
 
+    private void playerTurns() {
+        for (int count = 0; count < hands.size(); count++) {
+            Hand player = hands.get(count);
+            while (true) {
+                if (!turn(player)) break;
+            }
+            System.out.println(player.displayHand());
+            Console.getString("ENTER to start next turn", false);
+        }
+    }
 
     private void displayTable() {
         StringBuilder output = new StringBuilder();
