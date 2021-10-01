@@ -60,6 +60,16 @@ public class Table {
         }
     }
 
+    private void endRound() {
+        for (Hand player : hands) {
+            determineWinner(player);
+            System.out.println(player.getBalance());
+        }
+        while (hands.size() > playerCount) {
+            hands.remove(hands.size() - 1);
+        }
+    }
+
     private void displayTable() {
         StringBuilder output = new StringBuilder();
         output.append(dealer.getName() + " ").append(dealer.displayHand()).append("\n");
@@ -71,11 +81,13 @@ public class Table {
         for (int count = 0; count < 2; count++) {
             // list of hands
             dealer.addCard(deck.draw());
+            for (Hand player : hands) {
             player.addCard(deck.draw());
+            }
         }
     }
 
-    private void determineWinner() {
+    private void determineWinner(Hand player) {
         if (player.getValue() > BUST_VALUE) {
             System.out.println("Player Busted");
             return;
@@ -95,9 +107,10 @@ public class Table {
 
     private boolean turn(Hand activeHand) {
         System.out.println(dealer.getName() + " " + dealer.displayHand());
+        System.out.println(activeHand.getName());
         int action = activeHand.getAction();
         return switch (action) {
-            case Actor.QUIT -> stand(activeHand);
+            case Actor.QUIT -> quit();
             case Actor.HIT -> hit(activeHand);
             case Actor.STAND -> stand(activeHand);
             case Actor.DOUBLE -> doubleDown(activeHand);
@@ -106,8 +119,12 @@ public class Table {
         };
     }
 
+    private boolean quit() {
+        System.exit(0);
+        return false;
+    }
+
     private boolean hit(Hand activeHand) {
-        // TODO: hit
         activeHand.addCard(deck.draw());
         System.out.println("Hit me");
         if (activeHand.getValue() > BUST_VALUE) {
@@ -118,23 +135,26 @@ public class Table {
     }
 
     private boolean stand(Hand activeHand) {
-        // TODO: stand
         System.out.println("Waves Hand");
         return false;
     }
 
     private boolean doubleDown(Hand activeHand) {
-        // TODO: double
         activeHand.doubleBet();
         System.out.println("Double Down");
         hit(activeHand);
         stand(activeHand);
         return false;
-
     }
 
     private boolean split(Hand activeHand) {
         System.out.println("two hands");
-        return doubleDown(activeHand);
+        activeHand.doubleBet();
+        Hand newHand = activeHand.splitHand();
+        activeHand.addCard(deck.draw());
+        newHand.addCard(deck.draw());
+        hands.add(newHand);
+
+        return true;
     }
 }

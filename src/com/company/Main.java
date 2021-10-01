@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         Table blackJack = new Table();
-        blackJack.playRound();
+        blackJack.playGame();
     }
 }
 
