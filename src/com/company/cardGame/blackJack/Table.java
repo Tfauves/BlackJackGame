@@ -3,6 +3,7 @@ import com.company.cardGame.actors.Dealer;
 import com.company.cardGame.actors.Player;
 import com.company.cardGame.deck.Deck;
 import com.company.cardGame.deck.StandardDeck;
+import com.company.cardGame.util.Console;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,15 @@ public class Table {
     Hand dealer = new Hand(new Dealer());
     Deck deck;
     int BUST_VALUE = 21;
+    private int playerCount = 0;
+
+    public Table() {
+        playerCount = Console.getInt("How many players?", 1, 6, "invalid input");
+        for (int count = 0; count < playerCount; count++) {
+            Player newPlayer = new Player("Player" + (count + 1) + ": ");
+            hands.add(new Hand(newPlayer));
+        }
+    }
 
     public void playRound() {
         deck = new StandardDeck();
