@@ -25,18 +25,25 @@ public class Table {
         }
     }
 
+    public void playGame() {
+        while (true) {
+            playRound();
+        }
+    }
+
     public void playRound() {
         deck = new StandardDeck();
         deck.shuffle();
-        player.placeBet();
+        getBets();
         deal();
         displayTable();
-        while (turn(player)) {}
+        playerTurns();
         while(turn(dealer));
         displayTable();
-        determineWinner();
-        System.out.println(player.getBalance());
+        endRound();
     }
+
+
 
     private void displayTable() {
         StringBuilder output = new StringBuilder();
