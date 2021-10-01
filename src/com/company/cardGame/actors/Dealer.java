@@ -19,7 +19,7 @@ public class Dealer implements Actor {
         return 0;
     }
 
-    public void addBalance(int amt) {
+    public void addBalance(double amt) {
         return;
     }
 

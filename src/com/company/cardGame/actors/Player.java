@@ -54,7 +54,7 @@ public class Player implements Actor {
         return bet;
     }
 
-    public void addBalance(int amt) {
+    public void addBalance(double amt) {
         balance += amt;
     }
 }

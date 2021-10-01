@@ -12,5 +12,5 @@ public interface Actor {
     int getBalance();
     int placeBet();
     int getAction(Hand hand);
-    void addBalance(int amt);
+    void addBalance(double amt);
 }
