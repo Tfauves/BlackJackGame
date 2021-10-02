@@ -9,12 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Table {
-    Hand player = new Hand(new Player("player"));
     List<Hand> hands = new ArrayList<>();
-    List<Actor> players = new ArrayList<>();
     Hand dealer = new Hand(new Dealer());
     Deck deck;
-    int BUST_VALUE = 21;
+    public static final int BUST_VALUE = 21;
     private int playerCount = 0;
 
     public Table() {
@@ -73,7 +71,9 @@ public class Table {
     private void displayTable() {
         StringBuilder output = new StringBuilder();
         output.append(dealer.getName() + " ").append(dealer.displayHand()).append("\n");
+        for (Hand player : hands) {
         output.append(player.getName() + " ").append(player.displayHand());
+        }
         System.out.println(output);
     }
 

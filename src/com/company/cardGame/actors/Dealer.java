@@ -7,7 +7,7 @@ public class Dealer implements Actor {
     public int STAND_VALUE = 17;
 
     public String getName() {
-        return "Jasper";
+        return "DEALER";
     }
 
     public int getBalance() {
