@@ -23,46 +23,6 @@ public class Hand {
         cards.add(card);
     }
 
-// matts pair method
-//    public int checkPair() {
-//        for (int i = 0; i < cards.size(); i++) {
-//            int pairs = 0;
-//            for (int j = i + 1; j < cards.size(); j++) {
-//                if (cards.get(i).getValue() == cards.get(j).getValue()) {
-//                    pairs++;
-//                }
-//            }
-//            if (pairs > 0) {
-//                return 1;
-//            }
-//        }
-//
-//        return 0;
-//    }
-
-    //my check pair
-//    public void checkPair(Hand hand, Deck cardDeck) {
-//        boolean hasPair = false;
-//        for (Card card : cards) {
-//            if (card.getRank() == card.getRank()) {
-//                hasPair = true;
-//            }
-//        }
-//        if (hasPair && holder.getBalance() >= bet) {
-//            hand.addCard(cardDeck.draw());
-//            hand.getHolder().setBalance(hand.getHolder().getBalance() - hand.betAmount());
-//            System.out.println(hand.getHolder().getName() +
-//            "'s bet: " + hand.betAmount() +
-//            " | Current balance: " + hand.getHolder().getBalance()
-//            );
-//
-//            System.out.println("Split");
-//        } else {
-//            holder.getAction(hand);
-//        }
-//
-//    }
-
     public String displayHand() {
         StringBuilder outPut = new StringBuilder();
         for (Card card : cards) {

@@ -11,7 +11,7 @@ public class Player implements Actor {
 
     public Player (String name, int startBalance) {
         this.name = name;
-        startBalance = startBalance;
+        balance = startBalance;
     }
 
     public Player(String name) {
