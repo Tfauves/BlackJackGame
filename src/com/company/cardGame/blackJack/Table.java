@@ -70,9 +70,9 @@ public class Table {
 
     private void displayTable() {
         StringBuilder output = new StringBuilder();
-        output.append(dealer.getName() + " ").append(dealer.displayHand()).append("\n");
+        output.append(dealer.getName()).append(" ").append(dealer.displayHand()).append("\n");
         for (Hand player : hands) {
-        output.append(player.getName() + " ").append(player.displayHand());
+        output.append(player.getName()).append(" ").append(player.displayHand()).append(" | ");
         }
         System.out.println(output);
     }
