@@ -122,7 +122,7 @@ public class Table {
     private boolean turn(Hand activeHand) {
         System.out.println(dealer.getName() + " " + dealer.displayHand());
         System.out.println(activeHand.getName());
-        byte action = activeHand.getAction(dealer);
+        int action = activeHand.getAction(dealer);
         return switch (action) {
             case Actor.QUIT -> quit();
             case Actor.HIT -> hit(activeHand);
@@ -140,7 +140,7 @@ public class Table {
 
     private boolean hit(Hand activeHand) {
         // TODO: hit
-        activeHand.addCard(deck.draw());
+        activeHand.addCard(deck.flipDraw());
         System.out.println("Hit");
         if (activeHand.getValue() > BUST_VALUE){
             System.out.println("Busted");
@@ -160,6 +160,7 @@ public class Table {
         activeHand.doubleBet();
         System.out.println("Bet Doubled");
         hit(activeHand);
+        stand(activeHand);
         return false;
     }
 
@@ -170,10 +171,11 @@ public class Table {
         match the bet.
         draw 1 card for each hand
          */
+        System.out.println("Two Hands");
         activeHand.doubleBet();
         Hand newHand = activeHand.splitHand();
-        activeHand.addCard(deck.draw());
-        newHand.addCard(deck.draw());
+        activeHand.addCard(deck.flipDraw());
+        newHand.addCard(deck.flipDraw());
         hands.add(newHand);
 
         return true;
