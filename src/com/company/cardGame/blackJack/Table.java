@@ -12,14 +12,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Table {
-    // TODO: remove this item.
-//    private Hand player = new Hand(new Player("player"));
-    // TODO: try to implement multiple hands.
-    private List<Hand> hands = new ArrayList<>(); // 1, 2, 3, 4, 5, 6
-    // TODO: more comfortable -> try to accomplish without the players list.
+    private List<Hand> hands = new ArrayList<>();
     private Hand dealer = new Hand(new Dealer());
     private Deck deck;
-    private int playerCount = 0; //6
+    private int playerCount = 0;
     public static final int BUST_VALUE = 21;
 
     public Table() {
@@ -30,9 +26,6 @@ public class Table {
         }
     }
 
-    /* handle split
-        remove player when 0 or quit
-     */
 
     public void playGame() {
         while(true) {
@@ -62,6 +55,7 @@ public class Table {
     private void playerTurns() {
         for (int count = 0; count < hands.size(); count++){
             Hand player = hands.get(count);
+            player.revealHand();
             while(true) {
                 if(!turn(player)) break;
             }
@@ -73,7 +67,9 @@ public class Table {
         for (Hand player : hands) {
             determineWinner(player);
             System.out.println(player.getBalance());
+            player.discardHand();
         }
+        dealer.discardHand();
         while ( hands.size() > playerCount) {
             hands.remove(hands.size() - 1);
         }
