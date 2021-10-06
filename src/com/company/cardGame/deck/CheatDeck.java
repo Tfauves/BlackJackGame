@@ -1,6 +1,6 @@
 package com.company.cardGame.deck;
 
-import com.company.cardGame.util.Console;
+
 
 public class CheatDeck implements Deck {
 
@@ -13,8 +13,8 @@ public class CheatDeck implements Deck {
 
     @Override
     public Card draw() {
-        int faceValue = Console.getInt("enter a number 1-13", 1, 13, "invalid entry");
-        int suit = Console.getInt("1. \u2664 | 2. \u2665 | 3. \u2666 | 4. \u2667", 1, 4, "invalid entry");
+        int faceValue = com.company.Utils.Console.getInt("enter a number 1-13", 1, 13, "invalid entry");
+        int suit = com.company.Utils.Console.getInt("1. \u2664 | 2. \u2665 | 3. \u2666 | 4. \u2667", 1, 4, "invalid entry");
         return new PlayingCard(SUIT[suit - 1], faceValue);
     }
 }

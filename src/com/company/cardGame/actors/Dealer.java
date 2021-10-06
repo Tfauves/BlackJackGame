@@ -1,15 +1,16 @@
-package com.company.cardGame.actors;
+package com.company.cardGame.actor;
 
 import com.company.cardGame.blackJack.Actor;
 import com.company.cardGame.blackJack.Hand;
 
 public class Dealer implements Actor {
-    public int STAND_VALUE = 17;
+    int STAND_VALUE = 17;
 
     public String getName() {
-        return "DEALER";
+        return "John Wick";
     }
 
+    @Override
     public int getBalance() {
         return 0;
     }
@@ -19,13 +20,11 @@ public class Dealer implements Actor {
         return 0;
     }
 
-    public void addBalance(double amt) {
-        return;
-    }
+    @Override
+    public void addBalance(double amt) { return; }
 
-    public int getAction(Hand hand) {
+    public byte getAction(Hand hand, Hand dealer) {
         return hand.getValue() < STAND_VALUE ? HIT : STAND;
     }
-
 
 }

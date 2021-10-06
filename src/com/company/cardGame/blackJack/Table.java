@@ -1,69 +1,80 @@
 package com.company.cardGame.blackJack;
-import com.company.cardGame.actors.Dealer;
-import com.company.cardGame.actors.Player;
+
+import com.company.Utils.Console;
+import com.company.cardGame.actor.Dealer;
+import com.company.cardGame.actor.Player;
 import com.company.cardGame.deck.Deck;
+
 import com.company.cardGame.deck.StandardDeck;
-import com.company.cardGame.util.Console;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Table {
-    List<Hand> hands = new ArrayList<>();
-    Hand dealer = new Hand(new Dealer());
-    Deck deck;
+    // TODO: remove this item.
+//    private Hand player = new Hand(new Player("player"));
+    // TODO: try to implement multiple hands.
+    private List<Hand> hands = new ArrayList<>(); // 1, 2, 3, 4, 5, 6
+    // TODO: more comfortable -> try to accomplish without the players list.
+    private Hand dealer = new Hand(new Dealer());
+    private Deck deck;
+    private int playerCount = 0; //6
     public static final int BUST_VALUE = 21;
-    private int playerCount = 0;
 
     public Table() {
-        playerCount = Console.getInt("How many players?", 1, 6, "invalid input");
+        playerCount = Console.getInt("How many players?", 1, 6, "invalid player selection");
         for (int count = 0; count < playerCount; count++) {
-            Player newPlayer = new Player("Player" + (count + 1) + ": ");
+            Player newPlayer = new Player("Player " + (count + 1));
             hands.add(new Hand(newPlayer));
         }
     }
 
+    /* handle split
+        remove player when 0 or quit
+     */
+
     public void playGame() {
-        while (true) {
+        while(true) {
             playRound();
         }
     }
 
     public void playRound() {
         deck = new StandardDeck();
+//        deck = new RiggedDeck();
         deck.shuffle();
         getBets();
         deal();
         displayTable();
         playerTurns();
-        while(turn(dealer));
+        while (turn(dealer));
         displayTable();
         endRound();
     }
 
     private void getBets() {
-        for (Hand player : hands) {
+        for(Hand player : hands) {
             player.placeBet();
         }
     }
 
     private void playerTurns() {
-        for (int count = 0; count < hands.size(); count++) {
+        for (int count = 0; count < hands.size(); count++){
             Hand player = hands.get(count);
-            while (true) {
-                if (!turn(player)) break;
+            while(true) {
+                if(!turn(player)) break;
             }
             System.out.println(player.displayHand());
-            Console.getString("ENTER to start next turn", false);
+            Console.getString("Enter to start next turn", false);
         }
     }
-
     private void endRound() {
         for (Hand player : hands) {
             determineWinner(player);
             System.out.println(player.getBalance());
         }
-        while (hands.size() > playerCount) {
+        while ( hands.size() > playerCount) {
             hands.remove(hands.size() - 1);
         }
     }
@@ -72,7 +83,7 @@ public class Table {
         StringBuilder output = new StringBuilder();
         output.append(dealer.getName()).append(" ").append(dealer.displayHand()).append("\n");
         for (Hand player : hands) {
-        output.append(player.getName()).append(" ").append(player.displayHand()).append(" | ");
+            output.append(player.getName()).append(" ").append(player.displayHand()).append(" | ");
         }
         System.out.println(output);
     }
@@ -82,7 +93,7 @@ public class Table {
             // list of hands
             dealer.addCard(deck.draw());
             for (Hand player : hands) {
-            player.addCard(deck.draw());
+                player.addCard(deck.draw());
             }
         }
     }
@@ -94,12 +105,12 @@ public class Table {
         }
         if (player.getValue() > dealer.getValue() || dealer.getValue() > BUST_VALUE) {
             System.out.println("Player Wins");
-            player.payOut(Hand.NORMAL_PAY);
+            player.payout(Hand.NORMALPAY);
             return;
         }
         if (player.getValue() == dealer.getValue()) {
             System.out.println("Push");
-            player.payOut(Hand.PUSH_PAY);
+            player.payout(Hand.PUSHPAY);
             return;
         }
         System.out.println("Dealer Wins");
@@ -108,7 +119,7 @@ public class Table {
     private boolean turn(Hand activeHand) {
         System.out.println(dealer.getName() + " " + dealer.displayHand());
         System.out.println(activeHand.getName());
-        int action = activeHand.getAction();
+        byte action = activeHand.getAction(dealer);
         return switch (action) {
             case Actor.QUIT -> quit();
             case Actor.HIT -> hit(activeHand);
@@ -125,9 +136,10 @@ public class Table {
     }
 
     private boolean hit(Hand activeHand) {
+        // TODO: hit
         activeHand.addCard(deck.draw());
-        System.out.println("Hit me");
-        if (activeHand.getValue() > BUST_VALUE) {
+        System.out.println("Hit");
+        if (activeHand.getValue() > BUST_VALUE){
             System.out.println("Busted");
             return false;
         }
@@ -135,20 +147,26 @@ public class Table {
     }
 
     private boolean stand(Hand activeHand) {
-        System.out.println("Waves Hand");
+        // TODO: stand
+        System.out.println("Stand");
         return false;
     }
 
     private boolean doubleDown(Hand activeHand) {
+        // TODO: double
         activeHand.doubleBet();
-        System.out.println("Double Down");
+        System.out.println("Bet Doubled");
         hit(activeHand);
-        stand(activeHand);
         return false;
     }
 
     private boolean split(Hand activeHand) {
-        System.out.println("two hands");
+        /*
+        take card
+        make a second hand
+        match the bet.
+        draw 1 card for each hand
+         */
         activeHand.doubleBet();
         Hand newHand = activeHand.splitHand();
         activeHand.addCard(deck.draw());

@@ -1,36 +1,22 @@
-package com.company.cardGame.util;
+package com.company.Utils;
 
 import java.util.Scanner;
 
 public class Console {
-
-    public final static Scanner scanner = new Scanner(System.in);
-    public static final String[] ACTION_SELECTION = new String[] {
-            "1. Hit",
-            "2. Stand",
-            "3. Split",
-            "4. Double Down"
-    };
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static int getInt(String prompt, int min, int max, String errorMsg) {
         int option = min - 1;
         do {
             System.out.println(prompt);
             String input = scanner.nextLine();
-            try {
+            try{
                 option = Integer.parseInt(input);
             } catch (NumberFormatException err) {
                 System.out.println(errorMsg);
             }
         } while (option < min || option > max);
         return option;
-    }
-
-    public static void displayActions (String prompt, String[] options) {
-        System.out.println(prompt);
-        for (String option : options) {
-            System.out.println(option);
-        }
     }
 
     public static String getString(String prompt, boolean isRequired) {
@@ -46,6 +32,4 @@ public class Console {
         } while (true);
         return input;
     }
-
-
 }
