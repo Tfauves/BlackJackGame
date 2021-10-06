@@ -41,6 +41,7 @@ public class Table {
         deal();
         displayTable();
         playerTurns();
+        dealer.revealHand();
         while (turn(dealer));
         displayTable();
         endRound();

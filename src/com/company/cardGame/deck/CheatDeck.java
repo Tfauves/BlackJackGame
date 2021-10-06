@@ -12,6 +12,11 @@ public class CheatDeck implements Deck {
     public void shuffle() {}
 
     @Override
+    public Card flipDraw() {
+        return null;
+    }
+
+    @Override
     public Card draw() {
         int faceValue = com.company.Utils.Console.getInt("enter a number 1-13", 1, 13, "invalid entry");
         int suit = com.company.Utils.Console.getInt("1. \u2664 | 2. \u2665 | 3. \u2666 | 4. \u2667", 1, 4, "invalid entry");
