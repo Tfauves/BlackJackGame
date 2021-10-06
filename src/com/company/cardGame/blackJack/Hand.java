@@ -97,6 +97,14 @@ public class Hand {
         }
     }
 
+    public void revealHand() {
+        for (Card card : cards) {
+            if (card.getIsFaceDown()) {
+                card.flip();
+            }
+        }
+    }
+
     // removeCard method
     public Card removeCard(int index) {
         // take card at index out of hand and return to table.

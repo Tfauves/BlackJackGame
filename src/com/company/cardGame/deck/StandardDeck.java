@@ -27,6 +27,13 @@ public class StandardDeck implements Deck {
         Collections.shuffle(deck);
     }
 
+    @Override
+    public Card flipDraw() {
+        Card card = draw();
+        card.flip();
+        return card;
+    }
+
     public Card draw() {
         return deck.remove(deck.size() -1);
     }
