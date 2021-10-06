@@ -75,15 +75,6 @@ public class Table {
         }
     }
 
-    private void displayTable() {
-        StringBuilder output = new StringBuilder();
-        output.append(dealer.getName()).append(" ").append(dealer.displayHand()).append("\n");
-        for (Hand player : hands) {
-            output.append(player.getName()).append(" ").append(player.displayHand()).append(" | ");
-        }
-        System.out.println(output);
-    }
-
     private void deal() {
         for (int count = 0; count < 2; count++) {
             // list of hands
@@ -93,6 +84,16 @@ public class Table {
             }
         }
     }
+
+    private void displayTable() {
+        StringBuilder output = new StringBuilder();
+        output.append(dealer.getName()).append(" ").append(dealer.displayHand()).append("\n");
+        for (Hand player : hands) {
+            output.append(player.getName()).append(" ").append(player.displayHand()).append(" | ");
+        }
+        System.out.println(output);
+    }
+
 
     private void determineWinner(Hand player) {
         if (player.getValue() > BUST_VALUE) {
