@@ -78,9 +78,9 @@ public class Table {
     private void deal() {
         for (int count = 0; count < 2; count++) {
             // list of hands
-            dealer.addCard(deck.draw());
+            dealer.addCard(count == 0 ? deck.draw() : deck.flipDraw());
             for (Hand player : hands) {
-                player.addCard(deck.draw());
+                player.addCard(count == 0 ? deck.draw() : deck.flipDraw());
             }
         }
     }
@@ -110,6 +110,12 @@ public class Table {
             player.payout(Hand.PUSHPAY);
             return;
         }
+        if(player.getValue() == BUST_VALUE) {
+            System.out.println("BlackJack");
+            player.payout(Hand.BLACKJACKPAY);
+            return;
+        }
+
         System.out.println("Dealer Wins");
     }
 
