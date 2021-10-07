@@ -39,6 +39,11 @@ public class Player implements Actor {
         return bet;
     }
 
+    @Override
+    public byte getAction(Hand hand, Hand dealer) {
+        return 0;
+    }
+
     private String getAvailableActions(Hand hand) {
         actionsCount = 2;
         StringBuilder output = new StringBuilder();
